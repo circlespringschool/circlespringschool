@@ -24,7 +24,7 @@
     <meta property="og:description"
         content="Sports, arts, clubs & community programs for holistic student development at Circle Spring Academy in Salama Estate, Thika">
     <meta property="og:image" content="src/imgs/logo-BBA39KOS.webp">
-    <meta property="og:url" content="https://www.circlespringschool.com/activities.html">
+    <meta property="og:url" content="https://www.circlespringschool.co.ke/activities.html">
     <meta property="og:type" content="website">
 
     <!-- Add Twitter Card tags -->
@@ -33,7 +33,7 @@
     <meta name="twitter:description" content="Sports, arts, clubs & community programs for holistic development">
 
     <!-- Add canonical URL -->
-    <link rel="canonical" href="https://www.circlespringschool.com/activities.html">
+    <link rel="canonical" href="https://www.circlespringschool.co.ke/activities.html">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -63,7 +63,7 @@
       "@type": "EducationalOrganization",
       "name": "Circle Spring Academy",
       "description": "Circle Spring Academy in Salama Estate, Thika offers quality education with holistic development through diverse student activities",
-      "url": "https://www.circlespringschool.com",
+      "url": "https://www.circlespringschool.co.ke",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Salama Estate",
@@ -136,6 +136,23 @@
 
 <body class="font-sans bg-gray-50">
     <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="bg-deep-carmine text-white" x-data="{ showBanner: true }" x-show="showBanner">
+          <div class="container mx-auto px-4 py-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+
+                <p x-text="language === 'en' ? 'Admissions are ongoing' : 'Uandikishaji unaendelea'"></p>
+                <a href="tel:+2540111427110" class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full text-sm font-medium transition duration-200">
+                  <i class="fas fa-phone text-xs"></i>
+                  +254 0111 427 110
+                </a>
+              </div>
+              <button @click="showBanner = false" class="text-white/80 hover:text-white transition">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <a href="index.html" class="flex items-center">
