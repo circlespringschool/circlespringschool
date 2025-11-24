@@ -137,22 +137,35 @@
 <body class="font-sans bg-gray-50">
     <header class="bg-white shadow-md fixed w-full top-0 z-50">
         <div class="bg-deep-carmine text-white" x-data="{ showBanner: true }" x-show="showBanner">
-          <div class="container mx-auto px-4 py-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-4">
-
-                <p x-text="language === 'en' ? 'Admissions are ongoing' : 'Uandikishaji unaendelea'"></p>
-                <a href="tel:+2540111427110" class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full text-sm font-medium transition duration-200">
-                  <i class="fas fa-phone text-xs"></i>
-                  +254 0111 427 110
+    <div class="container mx-auto px-3 py-2 sm:py-2">
+        <div class="flex items-center justify-between gap-4">
+            <!-- Content Section -->
+            <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                <!-- Admissions Text -->
+                <p class="text-sm font-medium whitespace-nowrap truncate" 
+                   x-text="language === 'en' ? 'Admissions are ongoing' : 'Uandikishaji unaendelea'">
+                </p>
+                
+                <!-- Phone Number -->
+                <a href="tel:+2540111427110" 
+                   class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full text-sm font-medium transition duration-200 whitespace-nowrap flex-shrink-0">
+                    <i class="fas fa-phone text-xs"></i>
+                    <span class="hidden sm:inline">+254 0111 427 110</span>
+                    <span class="sm:hidden">Call Now</span>
                 </a>
-              </div>
-              <button @click="showBanner = false" class="text-white/80 hover:text-white transition">
-                <i class="fas fa-times"></i>
-              </button>
             </div>
-          </div>
+
+            <!-- Close Button -->
+            <button @click="showBanner = false" 
+                    class="text-white/80 hover:text-white transition flex-shrink-0 ml-2">
+                <div class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full text-sm">
+                    <i class="fas fa-times text-xs"></i>
+                    <span class="hidden sm:inline"></span>
+                </div>
+            </button>
         </div>
+    </div>
+</div>
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <a href="index.html" class="flex items-center">
