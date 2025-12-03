@@ -351,8 +351,7 @@
                                 :class="errors.message ? 'border-red-500' : ''" required></textarea>
                             <p x-show="errors.message" class="text-red-500 text-sm mt-1" x-text="errors.message"></p>
                         </div>
-
-                        <!-- Bot Protection Challenge -->
+                        
                         <div x-show="showCaptcha" class="bg-gray-100 p-4 rounded-lg">
                             <p class="text-sm text-charcoal mb-2"
                                 x-text="language === 'en' ? 'Please solve this simple math problem:' : 'Tafadhali tatua shida hii rahisi ya hesabu:'">
