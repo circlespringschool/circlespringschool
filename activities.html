@@ -137,35 +137,36 @@
 <body class="font-sans bg-gray-50">
     <header class="bg-white shadow-md fixed w-full top-0 z-50">
         <div class="bg-deep-carmine text-white" x-data="{ showBanner: true }" x-show="showBanner">
-    <div class="container mx-auto px-3 py-2 sm:py-2">
-        <div class="flex items-center justify-between gap-4">
-            <!-- Content Section -->
-            <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
-                <!-- Admissions Text -->
-                <p class="text-sm font-medium whitespace-nowrap truncate" 
-                   x-text="language === 'en' ? 'Admissions are ongoing' : 'Uandikishaji unaendelea'">
-                </p>
-                
-                <!-- Phone Number -->
-                <a href="tel:+2540111427110" 
-                   class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full text-sm font-medium transition duration-200 whitespace-nowrap flex-shrink-0">
-                    <i class="fas fa-phone text-xs"></i>
-                    <span class="hidden sm:inline">+254 0111 427 110</span>
-                    <span class="sm:hidden">Call Now</span>
-                </a>
-            </div>
+            <div class="container mx-auto px-3 py-2 sm:py-2">
+                <div class="flex items-center justify-between gap-4">
+                    <!-- Content Section -->
+                    <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                        <!-- Admissions Text -->
+                        <p class="text-sm font-medium whitespace-nowrap truncate"
+                            x-text="language === 'en' ? 'Admissions are ongoing' : 'Uandikishaji unaendelea'">
+                        </p>
 
-            <!-- Close Button -->
-            <button @click="showBanner = false" 
-                    class="text-white/80 hover:text-white transition flex-shrink-0 ml-2">
-                <div class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full text-sm">
-                    <i class="fas fa-times text-xs"></i>
-                    <span class="hidden sm:inline"></span>
+                        <!-- Phone Number -->
+                        <a href="tel:+2540111427110"
+                            class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full text-sm font-medium transition duration-200 whitespace-nowrap flex-shrink-0">
+                            <i class="fas fa-phone text-xs"></i>
+                            <span class="hidden sm:inline">+254 0111 427 110</span>
+                            <span class="sm:hidden">Call Now</span>
+                        </a>
+                    </div>
+
+                    <!-- Close Button -->
+                    <button @click="showBanner = false"
+                        class="text-white/80 hover:text-white transition flex-shrink-0 ml-2">
+                        <div
+                            class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full text-sm">
+                            <i class="fas fa-times text-xs"></i>
+                            <span class="hidden sm:inline"></span>
+                        </div>
+                    </button>
                 </div>
-            </button>
+            </div>
         </div>
-    </div>
-</div>
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <a href="index.html" class="flex items-center">
@@ -380,16 +381,18 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Sports Day -->
+                <!-- Annual Inter Classes Sports Day -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="h-48 flex items-center justify-center">
-                        <img src="src/imgs/sports.webp" alt="Annual Sports Day" class="w-full h-full object-cover">
+                        <img src="src/imgs/sports.webp" alt="Annual Inter Classes Sports Day"
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-charcoal mb-3"
-                            x-text="language === 'en' ? 'Annual Sports Day' : 'Siku ya Michezo ya Mwaka'"></h3>
+                            x-text="language === 'en' ? 'Annual Inter Classes Sports Day' : 'Siku ya Michezo ya Mwaka Kati ya Madarasa'">
+                        </h3>
                         <p class="text-charcoal mb-4"
-                            x-text="language === 'en' ? 'Our biggest sporting event of the year where students compete in various athletic activities and team sports.' : 'Tukio kubwa la michezo la mwaka ambapo wanafunzi hushindana katika shughuli mbalimbali za riadha na michezo ya timu.'">
+                            x-text="language === 'en' ? 'Our biggest sporting event of the year where students from different classes compete in various athletic activities and team sports.' : 'Tukio kubwa la michezo la mwaka ambapo wanafunzi kutoka madarasa tofauti hushindana katika shughuli mbalimbali za riadha na michezo ya timu.'">
                         </p>
                         <div class="flex items-center text-gray-500">
                             <i class="fas fa-calendar-alt mr-2"></i>
@@ -549,15 +552,16 @@
                     <h3 class="text-xl font-bold mb-4" x-text="language === 'en' ? 'Programs' : 'Programu'"></h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-charcoal hover:text-deep-carmine transition"
-                                x-text="language === 'en' ? 'Early Years' : 'Miaka ya Mapema'"></a></li>
+                                x-text="language === 'en' ? 'Preschool (3-5 yrs)' : 'Shule ya Awali (3-5 miaka)'"></a>
+                        </li>
                         <li><a href="#" class="text-charcoal hover:text-deep-carmine transition"
-                                x-text="language === 'en' ? 'Primary School' : 'Shule ya Msingi'"></a></li>
+                                x-text="language === 'en' ? 'Lower Primary (6-8 yrs)' : 'Msingi wa Chini (6-8 miaka)'"></a>
+                        </li>
+                        <li><a href="#" class="text-charcoal hover:text-deep-carmine transition"
+                                x-text="language === 'en' ? 'Upper Primary (9-11 yrs)' : 'Msingi wa Juu (9-11 miaka)'"></a>
+                        </li>
                         <li><a href="#" class="text-charcoal hover:text-deep-carmine transition"
                                 x-text="language === 'en' ? 'Enrichment Programs' : 'Programu za Uboreshaji'"></a></li>
-                        <li><a href="#" class="text-charcoal hover:text-deep-carmine transition"
-                                x-text="language === 'en' ? 'After School Care' : 'Huduma baada ya Shule'"></a></li>
-                        <li><a href="#" class="text-charcoal hover:text-deep-carmine transition"
-                                x-text="language === 'en' ? 'Summer Camp' : 'Kambi ya Majira ya joto'"></a></li>
                     </ul>
                 </div>
 
