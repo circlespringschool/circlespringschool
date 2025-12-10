@@ -279,7 +279,7 @@
             <!-- Quick stats -->
             <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
                 <div class="text-center">
-                    <div class="text-3xl font-bold text-white">18+</div>
+                    <div class="text-3xl font-bold text-white">6+</div>
                     <div class="text-sm opacity-90" x-text="language === 'en' ? 'Years Experience' : 'Miaka ya Uzoefu'">
                     </div>
                 </div>
@@ -300,205 +300,217 @@
             </div>
         </div>
     </section>
-    <!-- Academics Section -->
-    <section id="academics" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <!-- CBC Curriculum Highlight -->
-                <div class="mt-8 bg-white rounded-lg p-6 max-w-3xl mx-auto">
-                    <div class="flex items-center justify-center mb-4">
-                        <i class="fas fa-graduation-cap text-deep-carmine text-2xl mr-3"></i>
-                        <h3 class="text-2xl font-bold text-charcoal"
-                            x-text="language === 'en' ? 'Academic Programs' : 'Mipango ya Masomo'"></h3>
-                    </div>
-                    <p class="text-slate-gray mb-4"
-                        x-text="language === 'en' ? 'We proudly follow the Kenyan Competency-Based Curriculum, designed to develop skills, knowledge, and values for the 21st century.' : 'Tunafuata kwa fahari Mtaala wa Kenya unaozingatia Uwezo, ulioundwa kuendeleza ujuzi, maarifa, na maadili kwa karne ya 21.'">
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-4 mt-6">
-                        <div class="flex items-center bg-white px-4 py-2 rounded-full border border-deep-carmine">
-                            <i class="fas fa-laptop-code text-deep-carmine mr-2"></i>
-                            <span class="text-charcoal font-medium"
-                                x-text="language === 'en' ? 'ICT Program' : 'Programu ya Teknolojia'"></span>
-                        </div>
-                        <div class="flex items-center bg-white px-4 py-2 rounded-full border border-deep-carmine">
-                            <i class="fas fa-language text-deep-carmine mr-2"></i>
-                            <span class="text-charcoal font-medium"
-                                x-text="language === 'en' ? 'French Language' : 'Lugha ya Kifaransa'"></span>
-                        </div>
-                        <div class="flex items-center bg-white px-4 py-2 rounded-full border border-deep-carmine">
-                            <i class="fas fa-fist-raised text-deep-carmine mr-2"></i>
-                            <span class="text-charcoal font-medium"
-                                x-text="language === 'en' ? 'Karate Training' : 'Mafunzo ya Karate'"></span>
-                        </div>
-                    </div>
+<!-- Academics Section -->
+<section id="academics" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <!-- CBC Curriculum Highlight -->
+            <div class="mt-8 bg-white rounded-lg p-6 max-w-3xl mx-auto">
+                <div class="flex items-center justify-center mb-4">
+                    <i class="fas fa-graduation-cap text-deep-carmine text-2xl mr-3"></i>
+                    <h3 class="text-2xl font-bold text-charcoal"
+                        x-text="language === 'en' ? 'Academic Programs' : 'Mipango ya Masomo'"></h3>
                 </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div
-                    class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
-                    <div class="bg-deep-carmine h-48 flex items-center justify-center">
-                        <img src="src/imgs/early.webp" alt="Early Years Program"
-                            class="lazy w-full h-full object-cover">
+                <p class="text-slate-gray mb-4"
+                    x-text="language === 'en' ? 'We proudly follow the Kenyan Competency-Based Curriculum, designed to develop skills, knowledge, and values for the 21st century. Please note that we do NOT offer kindergarten.' : 'Tunafuata kwa fahari Mtaala wa Kenya unaozingatia Uwezo, ulioundwa kuendeleza ujuzi, maarifa, na maadili kwa karne ya 21. Tafadhali kumbuka kuwa hatutoa shule ya chekechea.'">
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 mt-6">
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full border border-deep-carmine">
+                        <i class="fas fa-laptop-code text-deep-carmine mr-2"></i>
+                        <span class="text-charcoal font-medium"
+                            x-text="language === 'en' ? 'ICT Program' : 'Programu ya Teknolojia'"></span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-charcoal mb-3"
-                            x-text="language === 'en' ? 'Early Years (Ages 3-5)' : 'Miaka ya Mapema (Umri 3-5)'"></h3>
-                        <p class="text-slate-gray mb-4"
-                            x-text="language === 'en' ? 'Our CBC-aligned play-based curriculum focuses on developing social, emotional, and cognitive skills through exploration and discovery in a safe, nurturing environment.' : 'Mtaala wetu unaozingatia michezo na kufuata CBC unalenga kuendeleza ujuzi wa kijamii, kihisia na utambuzi kupitia utafiti na ugunduzi katika mazingira salama na ya malezi.'">
-                        </p>
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-charcoal mb-2"
-                                x-text="language === 'en' ? 'Key Focus Areas:' : 'Maeneo Muhimu ya Kulenga:'"></h4>
-                            <ul class="text-slate-gray text-sm space-y-1">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-deep-carmine mt-1 mr-2 text-xs"></i>
-                                    <span
-                                        x-text="language === 'en' ? 'Language & Communication' : 'Lugha na Mawasiliano'"></span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-deep-carmine mt-1 mr-2 text-xs"></i>
-                                    <span
-                                        x-text="language === 'en' ? 'Environmental Activities' : 'Shughuli za Mazingira'"></span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-deep-carmine mt-1 mr-2 text-xs"></i>
-                                    <span
-                                        x-text="language === 'en' ? 'Creative Activities' : 'Shughuli za Kibunifu'"></span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
-                            x-text="language === 'en' ? 'Learn More →' : 'Jifunze Zaidi →'"></a>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full border border-deep-carmine">
+                        <i class="fas fa-language text-deep-carmine mr-2"></i>
+                        <span class="text-charcoal font-medium"
+                            x-text="language === 'en' ? 'French Language' : 'Lugha ya Kifaransa'"></span>
                     </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
-                    <div class="bg-deep-carmine h-48 flex items-center justify-center">
-                        <img src="src/imgs/lab.webp" alt="Grades 1-2" class="lazy w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-charcoal mb-3"
-                            x-text="language === 'en' ? 'Primary (Grades 1-5)' : 'Msingi (Darasa la 1-5)'"></h3>
-                        <p class="text-slate-gray mb-4"
-                            x-text="language === 'en' ? 'Our comprehensive CBC curriculum develops foundational skills in literacy, numeracy, science, and social studies with a focus on competencies and values.' : 'Mtaala wetu kamili wa CBC unaokuza ujuzi wa msingi katika usomaji, hesabu, sayansi na masomo ya jamii kwa kuzingatia uwezo na maadili.'">
-                        </p>
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-charcoal mb-2"
-                                x-text="language === 'en' ? 'Special Features:' : 'Vipengele Maalum:'"></h4>
-                            <ul class="text-slate-gray text-sm space-y-1">
-                                <li class="flex items-start">
-                                    <i class="fas fa-laptop-code text-deep-carmine mt-1 mr-2 text-xs"></i>
-                                    <span
-                                        x-text="language === 'en' ? 'ICT Integration' : 'Ujumuishaji wa Teknolojia'"></span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-language text-deep-carmine mt-1 mr-2 text-xs"></i>
-                                    <span
-                                        x-text="language === 'en' ? 'French Language Classes' : 'Madarasa ya Kifaransa'"></span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-users text-deep-carmine mt-1 mr-2 text-xs"></i>
-                                    <span
-                                        x-text="language === 'en' ? 'Community Service Learning' : 'Kujifunza kwa Huduma ya Jamii'"></span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
-                            x-text="language === 'en' ? 'Learn More →' : 'Jifunze Zaidi →'"></a>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
-                    <div class="bg-deep-carmine h-48 flex items-center justify-center">
-                        <img src="src/imgs/enrichment.webp" alt="Enrichment Programs at circle Spring"
-                            class="lazy w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-charcoal mb-3"
-                            x-text="language === 'en' ? 'Enrichment Programs' : 'Mipango ya Uboreshaji'"></h3>
-                        <p class="text-slate-gray mb-4"
-                            x-text="language === 'en' ? 'Specialized programs including music, arts, sports, coding, French, and Karate to complement academic learning and develop well-rounded individuals.' : 'Mipango maalum ikiwemo muziki, sanaa, michezo, coding, Kifaransa, na Karate ili kukamilisha kujifunza kielimu na kuendeleza watu wenye ujuzi mwingi.'">
-                        </p>
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-charcoal mb-2"
-                                x-text="language === 'en' ? 'Featured Programs:' : 'Programu Zilizokua:'"></h4>
-                            <ul class="text-slate-gray text-sm space-y-1">
-                                <li class="flex items-start">
-                                    <i class="fas fa-fist-raised text-deep-carmine mt-1 mr-2 text-xs"></i>
-                                    <span
-                                        x-text="language === 'en' ? 'Karate & Self-Defense' : 'Karate na Kujilinda'"></span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-code text-deep-carmine mt-1 mr-2 text-xs"></i>
-                                    <span
-                                        x-text="language === 'en' ? 'Coding & Robotics' : 'Coding na Robotiki'"></span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-music text-deep-carmine mt-1 mr-2 text-xs"></i>
-                                    <span
-                                        x-text="language === 'en' ? 'Music & Performing Arts' : 'Muziki na Sanaa za Maonyesho'"></span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
-                            x-text="language === 'en' ? 'Learn More →' : 'Jifunze Zaidi →'"></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Special Programs Highlight -->
-            <div class="mt-16 bg-pattern rounded-xl p-8 text-charcoal">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4"
-                        x-text="language === 'en' ? 'Specialized Programs' : 'Programu Maalum'"></h3>
-                    <p class="text-xl max-w-3xl mx-auto"
-                        x-text="language === 'en' ? 'Beyond our CBC curriculum, we offer unique programs that set our students apart' : 'Zaidi ya mtaala wetu wa CBC, tunatoa programu za kipekee zinazowatofautisha wanafunzi wetu'">
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
-                        <div
-                            class="bg-deep-carmine w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-3"
-                            x-text="language === 'en' ? 'ICT Program' : 'Programu ya Teknolojia'"></h4>
-                        <p class="text-charcoal"
-                            x-text="language === 'en' ? 'Comprehensive technology education including coding, digital literacy, and robotics to prepare students for the digital age.' : 'Elimu kamili ya teknolojia ikiwemo coding, ujuzi wa kidijitali, na robotiki ili kuwaandaa wanafunzi kwa enzi ya kidijitali.'">
-                        </p>
-                    </div>
-
-                    <div class="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
-                        <div
-                            class="bg-deep-carmine w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-3"
-                            x-text="language === 'en' ? 'French Language' : 'Lugha ya Kifaransa'"></h4>
-                        <p class="text-charcoal"
-                            x-text="language === 'en' ? 'French language classes from early years to develop multilingual capabilities and global citizenship.' : 'Madarasa ya Kifaransa kuanzia miaka ya mapema kuendeleza uwezo wa lugha nyingi na uraia wa kimataifa.'">
-                        </p>
-                    </div>
-
-                    <div class="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
-                        <div
-                            class="bg-deep-carmine w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
-                            <i class="fas fa-fist-raised"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-3"
-                            x-text="language === 'en' ? 'Karate Training' : 'Mafunzo ya Karate'"></h4>
-                        <p class="text-charcoal"
-                            x-text="language === 'en' ? 'Professional Karate instruction to develop discipline, focus, physical fitness, and self-defense skills.' : 'Mafundisho ya kitaalamu ya Karate kuendeleza nidhamu, umakini, afya ya mwili, na ujuzi wa kujilinda.'">
-                        </p>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full border border-deep-carmine">
+                        <i class="fas fa-fist-raised text-deep-carmine mr-2"></i>
+                        <span class="text-charcoal font-medium"
+                            x-text="language === 'en' ? 'Karate Training' : 'Mafunzo ya Karate'"></span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
+                <div class="bg-deep-carmine h-48 flex items-center justify-center">
+                    <img src="src/imgs/early.webp" alt="Pre School "
+                        class="lazy w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-charcoal mb-3"
+                        x-text="language === 'en' ? 'Pre School (Ages 3-5)' : 'Shule ya Awali (Umri 3-5)'"></h3>
+                    <p class="text-slate-gray mb-4"
+                        x-text="language === 'en' ? 'Our CBC-aligned play-based curriculum focuses on developing social, emotional, and cognitive skills through exploration and discovery in a safe, nurturing environment.' : 'Mtaala wetu unaozingatia michezo na kufuata CBC unalenga kuendeleza ujuzi wa kijamii, kihisia na utambuzi kupitia utafiti na ugunduzi katika mazingira salama na ya malezi.'">
+                    </p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-charcoal mb-2"
+                            x-text="language === 'en' ? 'Key Focus Areas:' : 'Maeneo Muhimu ya Kulenga:'"></h4>
+                        <ul class="text-slate-gray text-sm space-y-1">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-deep-carmine mt-1 mr-2 text-xs"></i>
+                                <span
+                                    x-text="language === 'en' ? 'Language & Communication' : 'Lugha na Mawasiliano'"></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-deep-carmine mt-1 mr-2 text-xs"></i>
+                                <span
+                                    x-text="language === 'en' ? 'Environmental Activities' : 'Shughuli za Mazingira'"></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-deep-carmine mt-1 mr-2 text-xs"></i>
+                                <span
+                                    x-text="language === 'en' ? 'Creative Activities' : 'Shughuli za Kibunifu'"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
+                        x-text="language === 'en' ? 'Learn More →' : 'Jifunze Zaidi →'"></a>
+                </div>
+            </div>
+
+            <div
+                class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
+                <div class="bg-deep-carmine h-48 flex items-center justify-center">
+                    <img src="src/imgs/lab.webp" alt="Lower Primary" class="lazy w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-charcoal mb-3"
+                        x-text="language === 'en' ? 'Lower Primary (Ages 6-8)' : 'Msingi wa Chini (Umri 6-8)'"></h3>
+                    <p class="text-slate-gray mb-4"
+                        x-text="language === 'en' ? 'Our comprehensive CBC curriculum develops foundational skills in literacy, numeracy, science, and social studies with a focus on competencies and values for younger primary students.' : 'Mtaala wetu kamili wa CBC unaokuza ujuzi wa msingi katika usomaji, hesabu, sayansi na masomo ya jamii kwa kuzingatia uwezo na maadili kwa wanafunzi wa msingi wa chini.'">
+                    </p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-charcoal mb-2"
+                            x-text="language === 'en' ? 'Special Features:' : 'Vipengele Maalum:'"></h4>
+                        <ul class="text-slate-gray text-sm space-y-1">
+                            <li class="flex items-start">
+                                <i class="fas fa-book-reader text-deep-carmine mt-1 mr-2 text-xs"></i>
+                                <span
+                                    x-text="language === 'en' ? 'Reading & Phonics Program' : 'Programu ya Kusoma na Fonetiki'"></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-calculator text-deep-carmine mt-1 mr-2 text-xs"></i>
+                                <span
+                                    x-text="language === 'en' ? 'Practical Mathematics Activities' : 'Shughuli za Kihisia za Hisabati'"></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-paint-brush text-deep-carmine mt-1 mr-2 text-xs"></i>
+                                <span
+                                    x-text="language === 'en' ? 'Art & Craft Development' : 'Maendeleo ya Sanaa na Ufundi'"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
+                        x-text="language === 'en' ? 'Learn More →' : 'Jifunze Zaidi →'"></a>
+                </div>
+            </div>
+
+            <div
+                class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
+                <div class="bg-deep-carmine h-48 flex items-center justify-center">
+                    <img src="src/imgs/enrichment.webp" alt="Upper Primary"
+                        class="lazy w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-charcoal mb-3"
+                        x-text="language === 'en' ? 'Upper Primary (Ages 9-11)' : 'Msingi wa Juu (Umri 9-11)'"></h3>
+                    <p class="text-slate-gray mb-4"
+                        x-text="language === 'en' ? 'Advanced CBC curriculum preparing students for secondary education with emphasis on critical thinking, problem-solving, and subject mastery for older primary students.' : 'Mtaala wa hali ya juu wa CBC unaowaandaa wanafunzi kwa elimu ya upili kwa kuzingatia fikra za kina, utatuzi wa matatizo, na umilisi wa masomo kwa wanafunzi wa msingi wa juu.'">
+                    </p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-charcoal mb-2"
+                            x-text="language === 'en' ? 'Featured Programs:' : 'Programu Zilizokua:'"></h4>
+                        <ul class="text-slate-gray text-sm space-y-1">
+                            <li class="flex items-start">
+                                <i class="fas fa-fist-raised text-deep-carmine mt-1 mr-2 text-xs"></i>
+                                <span
+                                    x-text="language === 'en' ? 'Karate & Self-Defense' : 'Karate na Kujilinda'"></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-code text-deep-carmine mt-1 mr-2 text-xs"></i>
+                                <span
+                                    x-text="language === 'en' ? 'Coding & Robotics' : 'Coding na Robotiki'"></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-music text-deep-carmine mt-1 mr-2 text-xs"></i>
+                                <span
+                                    x-text="language === 'en' ? 'Music & Performing Arts' : 'Muziki na Sanaa za Maonyesho'"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
+                        x-text="language === 'en' ? 'Learn More →' : 'Jifunze Zaidi →'"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Programs Highlight -->
+        <div class="mt-16 bg-pattern rounded-xl p-8 text-charcoal">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4"
+                    x-text="language === 'en' ? 'Enrichment Programs' : 'Programu za Uboreshaji'"></h3>
+                <p class="text-xl max-w-3xl mx-auto"
+                    x-text="language === 'en' ? 'Beyond our CBC curriculum, we offer unique programs that set our students apart including Ballet, Taekwondo, Brass Band, and Chess' : 'Zaidi ya mtaala wetu wa CBC, tunatoa programu za kipekee zinazowatofautisha wanafunzi wetu ikiwemo Ballet, Taekwondo, Bandi ya Brass, na Chess'">
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <div
+                        class="bg-deep-carmine w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-ballet"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3"
+                        x-text="language === 'en' ? 'Ballet' : 'Ballet'"></h4>
+                    <p class="text-charcoal"
+                        x-text="language === 'en' ? 'Classical dance training to develop grace, coordination, musicality, and artistic expression in our students.' : 'Mafunzo ya densi ya kitamaduni kuendeleza urembo, usawa, muziki, na usemi wa kisanaa kwa wanafunzi wetu.'">
+                    </p>
+                </div>
+
+                <div class="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <div
+                        class="bg-deep-carmine w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-fist-raised"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3"
+                        x-text="language === 'en' ? 'Taekwondo' : 'Taekwondo'"></h4>
+                    <p class="text-charcoal"
+                        x-text="language === 'en' ? 'Korean martial arts training focusing on discipline, respect, physical fitness, and self-defense techniques.' : 'Mafunzo ya sanaa ya kijeshi ya Korea yanayolenga nidhamu, heshima, afya ya mwili, na mbinu za kujilinda.'">
+                    </p>
+                </div>
+
+                <div class="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <div
+                        class="bg-deep-carmine w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-drum"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3"
+                        x-text="language === 'en' ? 'Brass Band' : 'Bandi ya Brass'"></h4>
+                    <p class="text-charcoal"
+                        x-text="language === 'en' ? 'Instrumental music program teaching brass instruments, musical theory, and ensemble performance skills.' : 'Programu ya muziki ya vyombo inayofundisha vyombo vya brass, nadharia ya muziki, na ujuzi wa utendaji wa kikundi.'">
+                    </p>
+                </div>
+
+                <div class="text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <div
+                        class="bg-deep-carmine w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3"
+                        x-text="language === 'en' ? 'Chess Club' : 'Kilabu ya Chess'"></h4>
+                    <p class="text-charcoal"
+                        x-text="language === 'en' ? 'Strategic game training to enhance critical thinking, problem-solving, and decision-making skills in students.' : 'Mafunzo ya mchezo wa kimkakati kuimarisha fikra za kina, utatuzi wa matatizo, na ujuzi wa kufanya maamuzi kwa wanafunzi.'">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Admissions Section -->
     <section id="admissions" class="py-16 bg-gray-50">
@@ -587,341 +599,369 @@
         </div>
     </section>
 
-    <!-- News Section -->
-    <section id="news" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4"
-                    x-text="language === 'en' ? 'News & Events' : 'Habari na Matukio'"></h2>
-                <p class="text-xl text-slate-gray max-w-2xl mx-auto"
-                    x-text="language === 'en' ? 'Stay updated with our community in Salama Estate' : 'Kaa ukaribu na jamii yetu katika eneo la Salama Estate'">
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div
-                    class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
-                    <div class="h-48 flex items-center justify-center">
-                        <img src="src/imgs/sports.webp" alt="Sports Day" class="lazy w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span
-                            class="inline-block bg-gray-100 text-slate-gray text-sm font-medium px-3 py-1 rounded-full mb-3">June
-                            15, 2025</span>
-                        <h3 class="text-xl font-bold text-charcoal mb-3"
-                            x-text="language === 'en' ? 'Inter-classes Sports Day Champions' : 'Mabingwa wa Siku ya Michezo ya Mwaka'">
-                        </h3>
-                        <p class="text-slate-gray mb-4"
-                            x-text="language === 'en' ? 'Our students showcased incredible talent and sportsmanship at our inter-classes Sports Day. Congratulations to all participants from our Salama Estate campus!' : 'Wanafunzi wetu walionyesha kipaji cha kushangaza na uchezaji mzuri katika Siku yetu ya Michezo ya Mwaka. Hongera kwa washiriki wote kutoka kampasi yetu ya Salama Estate!'">
-                        </p>
-                        <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
-                            x-text="language === 'en' ? 'Read More →' : 'Soma Zaidi →'"></a>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
-                    <div class="h-48 flex items-center justify-center">
-                        <img src="src/imgs/fair.webp" alt="Science Fair" class="lazy w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span
-                            class="inline-block bg-gray-100 text-slate-gray text-sm font-medium px-3 py-1 rounded-full mb-3">May
-                            28, 2025</span>
-                        <h3 class="text-xl font-bold text-charcoal mb-3"
-                            x-text="language === 'en' ? 'Science Fair Winners' : 'Washindi wa Maonyesho ya Sayansi'">
-                        </h3>
-                        <p class="text-slate-gray mb-4"
-                            x-text="language === 'en' ? 'Circle Spring students won three awards at the Thika Regional Science Fair for their innovative projects on renewable energy and environmental conservation.' : 'Wanafunzi wa Circle Spring walishinda tuzo tatu katika Maonyesho ya Sayansi ya Mkoa wa Thika kwa miradi yao ya ubunifu juu ya nishati mbadala na uhifadhi wa mazingira.'">
-                        </p>
-                        <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
-                            x-text="language === 'en' ? 'Read More →' : 'Soma Zaidi →'"></a>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
-                    <div class="h-48 flex items-center justify-center">
-                        <img src="src/imgs/lab.webp" alt="New Learning Commons" class="lazy w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span
-                            class="inline-block bg-gray-100 text-slate-gray text-sm font-medium px-3 py-1 rounded-full mb-3">April
-                            10, 2025</span>
-                        <h3 class="text-xl font-bold text-charcoal mb-3"
-                            x-text="language === 'en' ? 'New Learning Commons Opens' : 'Kituo Kipya cha Kujifunza Kinafunguliwa'">
-                        </h3>
-                        <p class="text-slate-gray mb-4"
-                            x-text="language === 'en' ? 'Our newly renovated library and learning commons is now open, featuring state-of-the-art technology and collaborative spaces for enhanced learning.' : 'Maktaba yetu iliyoboreshwa na kituo cha kujifunza kimefunguliwa sasa, kikiwa na teknolojia ya kisasa na nafasi za ushirikiano kwa ajili ya kujifunza bora.'">
-                        </p>
-                        <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
-                            x-text="language === 'en' ? 'Read More →' : 'Soma Zaidi →'"></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="#" class="cta-button font-bold py-3 px-8 rounded-full transition duration-300 inline-block"
-                    x-text="language === 'en' ? 'View All News' : 'Tazama Habari Zote'"></a>
-            </div>
+<!-- News Section -->
+<section id="news" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4"
+                x-text="language === 'en' ? 'News & Events' : 'Habari na Matukio'"></h2>
+            <p class="text-xl text-slate-gray max-w-2xl mx-auto"
+                x-text="language === 'en' ? 'Stay updated with our community in Salama Estate' : 'Kaa ukaribu na jamii yetu katika eneo la Salama Estate'">
+            </p>
         </div>
-    </section>
 
-    <!-- FAQ Section -->
-    <section class="py-16 bg-white" x-data="{ openCategory: null, openFaq: null }">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4"
-                    x-text="language === 'en' ? 'Frequently Asked Questions' : 'Maswali Yanayoulizwa Mara Kwa Mara'">
-                </h2>
-                <p class="text-xl text-slate-gray max-w-2xl mx-auto"
-                    x-text="language === 'en' ? 'Everything you need to know about Circle Spring School in Salama Estate, Thika' : 'Kila kitu unachohitaji kujua kuhusu Shule ya Circle Spring katika eneo la Salama Estate, Thika'">
-                </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Interclasses Day -->
+            <div
+                class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
+                <div class="h-48 flex items-center justify-center">
+                    <img src="src/imgs/sports.webp" alt="Interclasses Day" class="lazy w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <span
+                        class="inline-block bg-gray-100 text-slate-gray text-sm font-medium px-3 py-1 rounded-full mb-3">August
+                        22, 2024</span>
+                    <h3 class="text-xl font-bold text-charcoal mb-3"
+                        x-text="language === 'en' ? 'Annual Interclasses Day Celebration' : 'Sikukuu ya Siku ya Interclasses'">
+                    </h3>
+                    <p class="text-slate-gray mb-4"
+                        x-text="language === 'en' ? 'Join us for our exciting Interclasses Day featuring academic competitions, talent shows, and cultural performances. A day of unity and celebration for all students!' : 'Karibuni kwenye Siku ya Interclasses yenye michezo ya kitaaluma, maonyesho ya vipaji, na maigizo ya kitamaduni. Siku ya umoja na sherehe kwa wanafunzi wote!'">
+                    </p>
+                    <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
+                        x-text="language === 'en' ? 'Read More →' : 'Soma Zaidi →'"></a>
+                </div>
             </div>
 
-            <div class="max-w-4xl mx-auto space-y-6">
-                <!-- Admissions Category -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button @click="openCategory = openCategory === 'admissions' ? null : 'admissions'"
-                        class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition">
-                        <div>
-                            <h3 class="text-xl font-semibold text-deep-carmine"
-                                x-text="language === 'en' ? 'Admissions Process' : 'Mchakato wa Uandikishaji'"></h3>
-                            <p class="text-slate-gray text-sm mt-1"
-                                x-text="language === 'en' ? 'Learn about our enrollment requirements and procedures' : 'Jifunze kuhusu mahitaji na taratibu zetu za usajili'">
-                            </p>
-                        </div>
-                        <svg class="h-6 w-6 text-deep-carmine transform transition-transform duration-300"
-                            :class="openCategory === 'admissions' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-
-                    <div x-show="openCategory === 'admissions'" x-transition class="border-t border-gray-100">
-                        <div class="space-y-0">
-                            <div class="border-b border-gray-100 last:border-b-0">
-                                <button @click="openFaq = openFaq === 'admissions1' ? null : 'admissions1'"
-                                    class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
-                                    <span class="text-lg font-medium text-charcoal"
-                                        x-text="language === 'en' ? 'What is the admissions process at Circle Spring School?' : 'Ni nini mchakato wa uandikishaji katika Shule ya Circle Spring?'"></span>
-                                    <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
-                                        :class="openFaq === 'admissions1' ? 'rotate-180' : ''" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div x-show="openFaq === 'admissions1'" x-transition class="px-5 pb-5">
-                                    <p class="text-slate-gray"
-                                        x-text="language === 'en' ? 'Our admissions process involves: 1) Submitting an inquiry form, 2) Scheduling a campus tour, 3) Completing the application, 4) Student assessment, and 5) Final enrollment. The entire process typically takes 2-3 weeks.' : 'Mchakato wetu wa uandikishaji unajumuisha: 1) Kuwasilisha fomu ya maswali, 2) Kupanga ziara ya kampasi, 3) Kukamilisha maombi, 4) Tathmini ya mwanafunzi, na 5) Usajili wa mwisho. Mchakato wote kwa kawaida huchukua wiki 2-3.'">
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="border-b border-gray-100 last:border-b-0">
-                                <button @click="openFaq = openFaq === 'admissions2' ? null : 'admissions2'"
-                                    class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
-                                    <span class="text-lg font-medium text-charcoal"
-                                        x-text="language === 'en' ? 'What are the age requirements for different programs?' : 'Ni mahitaji gani ya umri kwa programu tofauti?'"></span>
-                                    <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
-                                        :class="openFaq === 'admissions2' ? 'rotate-180' : ''" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div x-show="openFaq === 'admissions2'" x-transition class="px-5 pb-5">
-                                    <p class="text-slate-gray"
-                                        x-text="language === 'en' ? 'Early Years Program: 3-5 years old, Primary School: 6-12 years old (Grades 1-6). Children must meet the age requirement by September 1st of the academic year.' : 'Programu ya Miaka ya Mapema: Umri wa miaka 3-5, Shule ya Msingi: Umri wa miaka 6-12 (Darasa la 1-6). Watoto lazima wafikie mahitaji ya umri ifikapo Septemba 1 ya mwaka wa masomo.'">
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="border-b border-gray-100 last:border-b-0">
-                                <button @click="openFaq = openFaq === 'admissions3' ? null : 'admissions3'"
-                                    class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
-                                    <span class="text-lg font-medium text-charcoal"
-                                        x-text="language === 'en' ? 'Do you accept mid-year transfers?' : 'Je, mnakubali kuhamisha katikati ya mwaka?'"></span>
-                                    <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
-                                        :class="openFaq === 'admissions3' ? 'rotate-180' : ''" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div x-show="openFaq === 'admissions3'" x-transition class="px-5 pb-5">
-                                    <p class="text-slate-gray"
-                                        x-text="language === 'en' ? 'Yes, we accept mid-year transfers based on availability. The student will undergo an assessment to ensure proper placement, and we will review previous school records.' : 'Ndio, tunakubali kuhamisha katikati ya mwaka kulingana na upatikanaji. Mwanafunzi atafanyiwa tathmini ili kuhakikisha upangaji sahihi, na tutakagua rekodi za shule zilizopita.'">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Card 2: Grade 2 Graduation -->
+            <div
+                class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
+                <div class="h-48 flex items-center justify-center">
+                    <img src="src/imgs/fair.webp" alt="Grade 2 Graduation" class="lazy w-full h-full object-cover">
                 </div>
-
-                <!-- Fees & Payment Category -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button @click="openCategory = openCategory === 'fees' ? null : 'fees'"
-                        class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition">
-                        <div>
-                            <h3 class="text-xl font-semibold text-deep-carmine"
-                                x-text="language === 'en' ? 'Fees & Payment' : 'Ada na Malipo'"></h3>
-                            <p class="text-slate-gray text-sm mt-1"
-                                x-text="language === 'en' ? 'Information about tuition, payment options, and financial aid' : 'Taarifa kuhusu masomo, chaguzi za malipo, na misaada ya kifedha'">
-                            </p>
-                        </div>
-                        <svg class="h-6 w-6 text-deep-carmine transform transition-transform duration-300"
-                            :class="openCategory === 'fees' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-
-                    <div x-show="openCategory === 'fees'" x-transition class="border-t border-gray-100">
-                        <div class="space-y-0">
-                            <div class="border-b border-gray-100 last:border-b-0">
-                                <button @click="openFaq = openFaq === 'fees1' ? null : 'fees1'"
-                                    class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
-                                    <span class="text-lg font-medium text-charcoal"
-                                        x-text="language === 'en' ? 'What is included in the school fees?' : 'Ni nini kinachojumuishwa kwenye ada ya shule?'"></span>
-                                    <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
-                                        :class="openFaq === 'fees1' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div x-show="openFaq === 'fees1'" x-transition class="px-5 pb-5">
-                                    <p class="text-slate-gray"
-                                        x-text="language === 'en' ? 'Our fees cover tuition, textbooks, basic stationery, and access to all school facilities. Additional costs may include uniforms, specialized extracurricular activities, and field trips.' : 'Ada zetu zinajumuisha masomo, vitabu vya kiada, vifaa vya kawaida vya kuandikia, na ufikiaji wa vyombo vyote vya shule. Gharama za ziada zinaweza kujumuisha sare, shughuli maalum za ziada, na safari za kielimu.'">
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="border-b border-gray-100 last:border-b-0">
-                                <button @click="openFaq = openFaq === 'fees2' ? null : 'fees2'"
-                                    class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
-                                    <span class="text-lg font-medium text-charcoal"
-                                        x-text="language === 'en' ? 'What payment options are available?' : 'Ni chaguzi gani za malipo zinapatikana?'"></span>
-                                    <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
-                                        :class="openFaq === 'fees2' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div x-show="openFaq === 'fees2'" x-transition class="px-5 pb-5">
-                                    <p class="text-slate-gray"
-                                        x-text="language === 'en' ? 'We accept bank transfers, mobile money (M-Pesa), and cash payments. Fees can be paid annually, per term (3 terms), or through monthly installment plans with a small administrative fee.' : 'Tunakubali hamisha benki, pesa za rununu (M-Pesa), na malipo ya pesa taslim. Ada zinaweza kulipwa kila mwaka, kwa kila muhula (mihula 3), au kupitia mipango ya malipo ya kila mwezi na ada ndogo ya usimamizi.'">
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="border-b border-gray-100 last:border-b-0">
-                                <button @click="openFaq = openFaq === 'fees3' ? null : 'fees3'"
-                                    class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
-                                    <span class="text-lg font-medium text-charcoal"
-                                        x-text="language === 'en' ? 'Are there any discounts for siblings?' : 'Je, kuna punguzo lolote kwa ndugu?'"></span>
-                                    <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
-                                        :class="openFaq === 'fees3' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div x-show="openFaq === 'fees3'" x-transition class="px-5 pb-5">
-                                    <p class="text-slate-gray"
-                                        x-text="language === 'en' ? 'Yes, we offer a 10% discount on tuition fees for the second child and 15% for the third and subsequent children from the same family.' : 'Ndio, tunatoa punguzo la 10% kwenye ada ya masomo kwa mtoto wa pili na 15% kwa mtoto wa tatu na watoto wafuatao kutoka kwa familia moja.'">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="p-6">
+                    <span
+                        class="inline-block bg-gray-100 text-slate-gray text-sm font-medium px-3 py-1 rounded-full mb-3">October
+                        22, 2025</span>
+                    <h3 class="text-xl font-bold text-charcoal mb-3"
+                        x-text="language === 'en' ? 'Grade 2 Graduation Ceremony' : 'Sherehe ya Mafunzo ya Daraja la 2'">
+                    </h3>
+                    <p class="text-slate-gray mb-4"
+                        x-text="language === 'en' ? 'Celebrating our young learners as they complete their foundational year! Our Grade 2 graduation marks an important milestone in their educational journey at Circle Spring.' : 'Tunawasherehekea wanaojifunza wetu wadogo wanapokamilisha mwaka wao wa msingi! Hitimu ya Daraja la 2 ni hatua muhimu katika safari yao ya elimu Circle Spring.'">
+                    </p>
+                    <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
+                        x-text="language === 'en' ? 'Read More →' : 'Soma Zaidi →'"></a>
                 </div>
+            </div>
 
-                <!-- Academic Programs Category -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button @click="openCategory = openCategory === 'academics' ? null : 'academics'"
-                        class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition">
-                        <div>
-                            <h3 class="text-xl font-semibold text-deep-carmine"
-                                x-text="language === 'en' ? 'Academic Programs' : 'Mipango ya Masomo'"></h3>
-                            <p class="text-slate-gray text-sm mt-1"
-                                x-text="language === 'en' ? 'Details about our curriculum and educational approach' : 'Maelezo kuhusu mtaala wetu na mbinu ya kielimu'">
-                            </p>
-                        </div>
-                        <svg class="h-6 w-6 text-deep-carmine transform transition-transform duration-300"
-                            :class="openCategory === 'academics' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-
-                    <div x-show="openCategory === 'academics'" x-transition class="border-t border-gray-100">
-                        <div class="space-y-0">
-                            <div class="border-b border-gray-100 last:border-b-0">
-                                <button @click="openFaq = openFaq === 'academics1' ? null : 'academics1'"
-                                    class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
-                                    <span class="text-lg font-medium text-charcoal"
-                                        x-text="language === 'en' ? 'What curriculum does Circle Spring School follow?' : 'Shule ya Circle Spring inafuata mtaala gani?'"></span>
-                                    <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
-                                        :class="openFaq === 'academics1' ? 'rotate-180' : ''" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div x-show="openFaq === 'academics1'" x-transition class="px-5 pb-5">
-                                    <p class="text-slate-gray"
-                                        x-text="language === 'en' ? 'We follow the Kenyan Competency-Based Curriculum (CBC) with enhancements in critical thinking, creativity, and global perspectives to provide a well-rounded education.' : 'Tunafuata Mtaala wa Kenya unaozingatia Uwezo (CBC) na uboreshaji katika fikra za kina, ubunifu, na mitazamo ya kimataifa ili kutoa elimu kamili.'">
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="border-b border-gray-100 last:border-b-0">
-                                <button @click="openFaq = openFaq === 'academics2' ? null : 'academics2'"
-                                    class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
-                                    <span class="text-lg font-medium text-charcoal"
-                                        x-text="language === 'en' ? 'What extracurricular activities are available?' : 'Ni shughuli gani za ziada zinapatikana?'"></span>
-                                    <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
-                                        :class="openFaq === 'academics2' ? 'rotate-180' : ''" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div x-show="openFaq === 'academics2'" x-transition class="px-5 pb-5">
-                                    <p class="text-slate-gray"
-                                        x-text="language === 'en' ? 'We offer sports (football, athletics, swimming), music, art, drama, coding club, debate, environmental club, and various cultural activities to develop diverse talents.' : 'Tunatoa michezo (mpira wa miguu, riadha, kuogelea), muziki, sanaa, mchezo wa kuigiza, klabu ya coding, mjadala, klabu ya mazingira, na shughuli mbalimbali za kitamaduni ili kuendeleza vipaji tofauti.'">
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="border-b border-gray-100 last:border-b-0">
-                                <button @click="openFaq = openFaq === 'academics3' ? null : 'academics3'"
-                                    class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
-                                    <span class="text-lg font-medium text-charcoal"
-                                        x-text="language === 'en' ? 'Do you offer special needs education support?' : 'Je, mnatoa msaada wa elimu ya mahitaji maalum?'"></span>
-                                    <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
-                                        :class="openFaq === 'academics3' ? 'rotate-180' : ''" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div x-show="openFaq === 'academics3'" x-transition class="px-5 pb-5">
-                                    <p class="text-slate-gray"
-                                        x-text="language === 'en' ? 'Yes, we have a Special Educational Needs (SEN) program with trained staff to support students with learning differences. We conduct assessments to create individualized learning plans.' : 'Ndio, tuna programu ya Mahitaji Maalum ya Kielimu (SEN) na wafanyakazi waliofunzwa kusaidia wanafunzi wenye tofauti za kujifunza. Tunafanya tathmini ili kuunda mipango ya kujifunza ya kibinafsi.'">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Card 3: Modern Computer Lab -->
+            <div
+                class="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300">
+                <div class="h-48 flex items-center justify-center">
+                    <img src="src/imgs/lab.webp" alt="Modern Computer Lab" class="lazy w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <span
+                        class="inline-block bg-gray-100 text-slate-gray text-sm font-medium px-3 py-1 rounded-full mb-3">January
+                        18, 2025</span>
+                    <h3 class="text-xl font-bold text-charcoal mb-3"
+                        x-text="language === 'en' ? 'New Modern Computer Lab Launch' : 'Uzinduzi wa Maabara ya Kisasa ya Kompyuta'">
+                    </h3>
+                    <p class="text-slate-gray mb-4"
+                        x-text="language === 'en' ? 'We\'re thrilled to announce our newly equipped computer lab with cutting-edge technology, providing students with 21st century digital skills and learning tools.' : 'Tunafurahi kutangaza maabara yetu mpya ya kompyuta iliyo na teknolojia ya kisasa, ikiwapa wanafunzi ujuzi wa kidijitali wa karne ya 21 na zana za kujifunza.'">
+                    </p>
+                    <a href="#" class="text-deep-carmine font-semibold hover:text-vivid-burgundy transition"
+                        x-text="language === 'en' ? 'Read More →' : 'Soma Zaidi →'"></a>
                 </div>
             </div>
         </div>
-    </section>
+
+        <div class="text-center mt-12">
+            <a href="#" class="cta-button font-bold py-3 px-8 rounded-full transition duration-300 inline-block"
+                x-text="language === 'en' ? 'View All News' : 'Tazama Habari Zote'"></a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 bg-white" x-data="{ openCategory: null, openFaq: null }">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4"
+                x-text="language === 'en' ? 'Frequently Asked Questions' : 'Maswali Yanayoulizwa Mara Kwa Mara'">
+            </h2>
+            <p class="text-xl text-slate-gray max-w-2xl mx-auto"
+                x-text="language === 'en' ? 'Everything you need to know about Circle Spring School in Salama Estate, Thika' : 'Kila kitu unachohitaji kujua kuhusu Shule ya Circle Spring katika eneo la Salama Estate, Thika'">
+            </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-6">
+            <!-- Admissions Category -->
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button @click="openCategory = openCategory === 'admissions' ? null : 'admissions'"
+                    class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition">
+                    <div>
+                        <h3 class="text-xl font-semibold text-deep-carmine"
+                            x-text="language === 'en' ? 'Admissions Process' : 'Mchakato wa Uandikishaji'"></h3>
+                        <p class="text-slate-gray text-sm mt-1"
+                            x-text="language === 'en' ? 'Learn about our enrollment requirements and procedures' : 'Jifunze kuhusu mahitaji na taratibu zetu za usajili'">
+                        </p>
+                    </div>
+                    <svg class="h-6 w-6 text-deep-carmine transform transition-transform duration-300"
+                        :class="openCategory === 'admissions' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <div x-show="openCategory === 'admissions'" x-transition class="border-t border-gray-100">
+                    <div class="space-y-0">
+                        <div class="border-b border-gray-100 last:border-b-0">
+                            <button @click="openFaq = openFaq === 'admissions1' ? null : 'admissions1'"
+                                class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
+                                <span class="text-lg font-medium text-charcoal"
+                                    x-text="language === 'en' ? 'What is the admissions process at Circle Spring School?' : 'Ni nini mchakato wa uandikishaji katika Shule ya Circle Spring?'"></span>
+                                <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
+                                    :class="openFaq === 'admissions1' ? 'rotate-180' : ''" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="openFaq === 'admissions1'" x-transition class="px-5 pb-5">
+                                <p class="text-slate-gray"
+                                    x-text="language === 'en' ? 'Our admissions process involves: 1) Submitting an inquiry form, 2) Scheduling a campus tour, 3) Completing the application, 4) Student assessment, and 5) Final enrollment. The entire process typically takes 2-3 weeks.' : 'Mchakato wetu wa uandikishaji unajumuisha: 1) Kuwasilisha fomu ya maswali, 2) Kupanga ziara ya kampasi, 3) Kukamilisha maombi, 4) Tathmini ya mwanafunzi, na 5) Usajili wa mwisho. Mchakato wote kwa kawaida huchukua wiki 2-3.'">
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gray-100 last:border-b-0">
+                            <button @click="openFaq = openFaq === 'admissions2' ? null : 'admissions2'"
+                                class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
+                                <span class="text-lg font-medium text-charcoal"
+                                    x-text="language === 'en' ? 'What are the age requirements for different programs?' : 'Ni mahitaji gani ya umri kwa programu tofauti?'"></span>
+                                <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
+                                    :class="openFaq === 'admissions2' ? 'rotate-180' : ''" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="openFaq === 'admissions2'" x-transition class="px-5 pb-5">
+                                <p class="text-slate-gray"
+                                    x-text="language === 'en' ? 'We offer the following programs: Preschool (3-5 years), Lower Primary (6-8 years), and Upper Primary (9-11 years). Please note that we do NOT offer kindergarten. Children must meet the age requirement by September 1st of the academic year.' : 'Tunatoa programu zifuatazo: Shule ya Awali (miaka 3-5), Msingi wa Chini (miaka 6-8), na Msingi wa Juu (miaka 9-11). Tafadhali kumbuka kuwa hatutoa shule ya chekechea. Watoto lazima wafikie mahitaji ya umri ifikapo Septemba 1 ya mwaka wa masomo.'">
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gray-100 last:border-b-0">
+                            <button @click="openFaq = openFaq === 'admissions3' ? null : 'admissions3'"
+                                class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
+                                <span class="text-lg font-medium text-charcoal"
+                                    x-text="language === 'en' ? 'Do you accept mid-year transfers?' : 'Je, mnakubali kuhamisha katikati ya mwaka?'"></span>
+                                <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
+                                    :class="openFaq === 'admissions3' ? 'rotate-180' : ''" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="openFaq === 'admissions3'" x-transition class="px-5 pb-5">
+                                <p class="text-slate-gray"
+                                    x-text="language === 'en' ? 'Yes, we accept mid-year transfers based on availability. The student will undergo an assessment to ensure proper placement, and we will review previous school records.' : 'Ndio, tunakubali kuhamisha katikati ya mwaka kulingana na upatikanaji. Mwanafunzi atafanyiwa tathmini ili kuhakikisha upangaji sahihi, na tutakagua rekodi za shule zilizopita.'">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fees & Payment Category -->
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button @click="openCategory = openCategory === 'fees' ? null : 'fees'"
+                    class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition">
+                    <div>
+                        <h3 class="text-xl font-semibold text-deep-carmine"
+                            x-text="language === 'en' ? 'Fees & Payment' : 'Ada na Malipo'"></h3>
+                        <p class="text-slate-gray text-sm mt-1"
+                            x-text="language === 'en' ? 'Information about tuition, payment options, and financial aid' : 'Taarifa kuhusu masomo, chaguzi za malipo, na misaada ya kifedha'">
+                        </p>
+                    </div>
+                    <svg class="h-6 w-6 text-deep-carmine transform transition-transform duration-300"
+                        :class="openCategory === 'fees' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <div x-show="openCategory === 'fees'" x-transition class="border-t border-gray-100">
+                    <div class="space-y-0">
+                        <div class="border-b border-gray-100 last:border-b-0">
+                            <button @click="openFaq = openFaq === 'fees1' ? null : 'fees1'"
+                                class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
+                                <span class="text-lg font-medium text-charcoal"
+                                    x-text="language === 'en' ? 'What is included in the school fees?' : 'Ni nini kinachojumuishwa kwenye ada ya shule?'"></span>
+                                <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
+                                    :class="openFaq === 'fees1' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="openFaq === 'fees1'" x-transition class="px-5 pb-5">
+                                <p class="text-slate-gray"
+                                    x-text="language === 'en' ? 'Our fees cover tuition, basic stationery, and access to all school facilities. Textbooks are NOT included in the fees and must be purchased separately. Additional costs include uniforms and extracurricular activities.' : 'Ada zetu zinajumuisha masomo, vifaa vya kawaida vya kuandikia, na ufikiaji wa vyombo vyote vya shule. Vitabu vya kiada HAVIJUMUISHIWI kwenye ada na lazima vinunuliwe tofauti. Gharama za ziada ni pamoja na sare na shughuli za ziada.'">
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gray-100 last:border-b-0">
+                            <button @click="openFaq = openFaq === 'fees2' ? null : 'fees2'"
+                                class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
+                                <span class="text-lg font-medium text-charcoal"
+                                    x-text="language === 'en' ? 'What payment options are available?' : 'Ni chaguzi gani za malipo zinapatikana?'"></span>
+                                <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
+                                    :class="openFaq === 'fees2' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="openFaq === 'fees2'" x-transition class="px-5 pb-5">
+                                <p class="text-slate-gray">
+                                    <template x-if="language === 'en'">
+                                        <span>
+                                            <strong class="text-red-600">NO CASH PAYMENTS ACCEPTED.</strong><br><br>
+                                            We only accept payments through:<br><br>
+                                            1. <strong>Family Bank</strong><br>
+                                            Paybill: 222111<br>
+                                            Account No: 24160#studentname&class<br><br>
+                                            2. <strong>KCB Bank</strong><br>
+                                            Paybill: 522533<br>
+                                            Account No: 8002316#studentname&class<br><br>
+                                            Fees can be paid annually, per term (3 terms), or through monthly installment plans.
+                                        </span>
+                                    </template>
+                                    <template x-if="language === 'sw'">
+                                        <span>
+                                            <strong class="text-red-600">HAKUNA MALIPO YA PESA TASLIMU.</strong><br><br>
+                                            Tunakubali malipo kupitia tu:<br><br>
+                                            1. <strong>Family Bank</strong><br>
+                                            Paybill: 222111<br>
+                                            Nambari ya Akaunti: 24160#studentname&class<br><br>
+                                            2. <strong>KCB Bank</strong><br>
+                                            Paybill: 522533<br>
+                                            Nambari ya Akaunti: 8002316#studentname&class<br><br>
+                                            Ada zinaweza kulipwa kila mwaka, kwa kila muhula (mihula 3), au kupitia mipango ya malipo ya kila mwezi.
+                                        </span>
+                                    </template>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gray-100 last:border-b-0">
+                            <button @click="openFaq = openFaq === 'fees3' ? null : 'fees3'"
+                                class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
+                                <span class="text-lg font-medium text-charcoal"
+                                    x-text="language === 'en' ? 'Are there any discounts for siblings?' : 'Je, kuna punguzo lolote kwa ndugu?'"></span>
+                                <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
+                                    :class="openFaq === 'fees3' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="openFaq === 'fees3'" x-transition class="px-5 pb-5">
+                                <p class="text-slate-gray"
+                                    x-text="language === 'en' ? 'Yes, we offer sibling discounts when there are more than two siblings enrolled. Please contact our administration office for specific discount rates based on the number of children enrolled.' : 'Ndio, tunatoa punguzo la ndugu wakati kuna zaidi ya ndugu wawili wameandikishwa. Tafadhali wasiliana na ofisi yetu ya usimamizi kwa viwango maalum vya punguzo kulingana na idadi ya watoto waliowekwa.'">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Programs Category -->
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button @click="openCategory = openCategory === 'academics' ? null : 'academics'"
+                    class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition">
+                    <div>
+                        <h3 class="text-xl font-semibold text-deep-carmine"
+                            x-text="language === 'en' ? 'Academic Programs' : 'Mipango ya Masomo'"></h3>
+                        <p class="text-slate-gray text-sm mt-1"
+                            x-text="language === 'en' ? 'Details about our curriculum and educational approach' : 'Maelezo kuhusu mtaala wetu na mbinu ya kielimu'">
+                        </p>
+                    </div>
+                    <svg class="h-6 w-6 text-deep-carmine transform transition-transform duration-300"
+                        :class="openCategory === 'academics' ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <div x-show="openCategory === 'academics'" x-transition class="border-t border-gray-100">
+                    <div class="space-y-0">
+                        <div class="border-b border-gray-100 last:border-b-0">
+                            <button @click="openFaq = openFaq === 'academics1' ? null : 'academics1'"
+                                class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
+                                <span class="text-lg font-medium text-charcoal"
+                                    x-text="language === 'en' ? 'What curriculum does Circle Spring School follow?' : 'Shule ya Circle Spring inafuata mtaala gani?'"></span>
+                                <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
+                                    :class="openFaq === 'academics1' ? 'rotate-180' : ''" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="openFaq === 'academics1'" x-transition class="px-5 pb-5">
+                                <p class="text-slate-gray"
+                                    x-text="language === 'en' ? 'We follow the Kenyan Competency-Based Curriculum (CBC) with enhancements in critical thinking, creativity, and global perspectives to provide a well-rounded education.' : 'Tunafuata Mtaala wa Kenya unaozingatia Uwezo (CBC) na uboreshaji katika fikra za kina, ubunifu, na mitazamo ya kimataifa ili kutoa elimu kamili.'">
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gray-100 last:border-b-0">
+                            <button @click="openFaq = openFaq === 'academics2' ? null : 'academics2'"
+                                class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
+                                <span class="text-lg font-medium text-charcoal"
+                                    x-text="language === 'en' ? 'What extracurricular activities are available?' : 'Ni shughuli gani za ziada zinapatikana?'"></span>
+                                <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
+                                    :class="openFaq === 'academics2' ? 'rotate-180' : ''" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="openFaq === 'academics2'" x-transition class="px-5 pb-5">
+                                <p class="text-slate-gray"
+                                    x-text="language === 'en' ? 'We offer a variety of extracurricular activities including: Ballet, Taekwondo, Brass Band, and Chess. These activities are designed to develop diverse talents and skills outside the regular academic curriculum.' : 'Tunatoa shughuli mbalimbali za ziada ikiwemo: Ballet, Taekwondo, Bandi ya Brass, na Chess. Shughuli hizi zimeundwa kuendeleza vipaji na ujuzi tofauti nje ya mtaala wa kawaida wa masomo.'">
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="border-b border-gray-100 last:border-b-0">
+                            <button @click="openFaq = openFaq === 'academics3' ? null : 'academics3'"
+                                class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition">
+                                <span class="text-lg font-medium text-charcoal"
+                                    x-text="language === 'en' ? 'Do you offer special needs education support?' : 'Je, mnatoa msaada wa elimu ya mahitaji maalum?'"></span>
+                                <svg class="h-5 w-5 text-slate-gray transform transition-transform duration-300"
+                                    :class="openFaq === 'academics3' ? 'rotate-180' : ''" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="openFaq === 'academics3'" x-transition class="px-5 pb-5">
+                                <p class="text-slate-gray"
+                                    x-text="language === 'en' ? 'No, we do not offer special needs education support at this time. Our current programs are designed for students who can thrive in a mainstream educational environment.' : 'Hapana, hatutoa msaada wa elimu ya mahitaji maalum kwa sasa. Mipango yetu ya sasa imeundwa kwa wanafunzi wanaoweza kustawi katika mazingira ya kielimu ya kawaida.'">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Testimonials Section -->
     <section class="relative isolate overflow-hidden bg-gray-50 px-6 py-24 sm:py-32 lg:px-8">
@@ -992,7 +1032,7 @@
                     </div>
                 </div>
                 <blockquote class="text-lg text-slate-gray italic text-center mb-6"
-                    x-text="language === 'en' ? 'The academic foundation my son received at Circle Spring prepared him excellently for secondary school. The teachers go above and beyond, and the small class sizes ensure each child gets personalized attention. We are so grateful for the six years he spent here in Thika.' : 'Msingi wa kielimu mwanangu alioupata katika Circle Spring ulimtayarisha vyema kwa shule ya upili. Walimu hufanya zaidi ya kawaida, na ukubwa mdogo wa madarasa huhakikisha kila mtoto anapata umakini wa kibinafsi. Tunashukuru sana kwa miaka sita aliyoitumia hapa Thika.'">
+                    x-text="language === 'en' ? ' The teachers go above and beyond, and the small class sizes ensure each child gets personalized attention. We are so grateful for the six years he spent here in Thika.' : 'Msingi wa kielimu mwanangu alioupata katika Circle Spring ulimtayarisha vyema kwa shule ya upili. Walimu hufanya zaidi ya kawaida, na ukubwa mdogo wa madarasa huhakikisha kila mtoto anapata umakini wa kibinafsi. Tunashukuru sana kwa miaka sita aliyoitumia hapa Thika.'">
                 </blockquote>
                 <div class="flex items-center justify-center">
                     <div
@@ -1139,13 +1179,11 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="backToTop"
         class="fixed bottom-8 right-8 bg-charcoal text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 opacity-0 invisible">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Custom JavaScript -->
     <script src="src/js/app.js"></script>
 </body>
 
