@@ -279,11 +279,14 @@
                 <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm">
                     <h3 class="text-2xl font-bold text-charcoal mb-6"
                         x-text="language === 'en' ? 'Send us a Message' : 'Tutumie Ujumbe'"></h3>
-                    <form class="space-y-5" x-data="contactForm()" @submit.prevent="submitForm">
+                    <form class="space-y-5" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" x-data="contactForm()" @submit.prevent="submitForm">
+                        <!-- Netlify form detection -->
+                        <input type="hidden" name="form-name" value="contact" />
+                        
                         <!-- Honeypot field for bots -->
-                        <div class="honeypot">
-                            <label for="website">Leave this field empty</label>
-                            <input type="text" id="website" name="website" x-model="formData.website">
+                        <div class="honeypot" style="display: none;">
+                            <label for="bot-field">Don't fill this out if you're human:</label>
+                            <input type="text" name="bot-field" x-model="formData.website">
                         </div>
 
                         <!-- Timestamp for form submission timing -->
@@ -292,7 +295,7 @@
                         <div>
                             <label for="name" class="block text-sm font-medium text-charcoal mb-2"
                                 x-text="language === 'en' ? 'Full Name *' : 'Jina Kamili *'"></label>
-                            <input type="text" id="name" x-model="formData.name"
+                            <input type="text" id="name" name="name" x-model="formData.name"
                                 :placeholder="language === 'en' ? 'Your Name' : 'Jina Lako'"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700 transition"
                                 :class="errors.name ? 'border-red-500' : ''" required>
@@ -303,7 +306,7 @@
                             <div>
                                 <label for="email" class="block text-sm font-medium text-charcoal mb-2"
                                     x-text="language === 'en' ? 'Email *' : 'Barua Pepe *'"></label>
-                                <input type="email" id="email" x-model="formData.email"
+                                <input type="email" id="email" name="email" x-model="formData.email"
                                     :placeholder="language === 'en' ? 'Your Email' : 'Barua Pepe Yako'"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700 transition"
                                     :class="errors.email ? 'border-red-500' : ''" required>
@@ -313,7 +316,7 @@
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-charcoal mb-2"
                                     x-text="language === 'en' ? 'Phone Number' : 'Nambari ya Simu'"></label>
-                                <input type="tel" id="phone" x-model="formData.phone"
+                                <input type="tel" id="phone" name="phone" x-model="formData.phone"
                                     :placeholder="language === 'en' ? 'Phone Number' : 'Nambari ya Simu'"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700 transition">
                             </div>
@@ -322,7 +325,7 @@
                         <div>
                             <label for="interest" class="block text-sm font-medium text-charcoal mb-2"
                                 x-text="language === 'en' ? 'I am interested in *' : 'Nina nia ya *'"></label>
-                            <select id="interest" x-model="formData.interest"
+                            <select id="interest" name="interest" x-model="formData.interest"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700 transition"
                                 required>
                                 <option value="" disabled selected
@@ -345,7 +348,7 @@
                         <div>
                             <label for="message" class="block text-sm font-medium text-charcoal mb-2"
                                 x-text="language === 'en' ? 'Message *' : 'Ujumbe *'"></label>
-                            <textarea id="message" rows="5" x-model="formData.message"
+                            <textarea id="message" name="message" rows="5" x-model="formData.message"
                                 :placeholder="language === 'en' ? 'Your Message' : 'Ujumbe Wako'"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700 transition"
                                 :class="errors.message ? 'border-red-500' : ''" required></textarea>
