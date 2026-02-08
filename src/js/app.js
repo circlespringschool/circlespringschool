@@ -12,29 +12,89 @@ document.addEventListener('alpine:init', () => {
     // Carousel functionality
     Alpine.data('carousel', () => ({
         activeSlide: 0,
+        slides: [
+            { src: 'src/imgs/hero.webp', alt: 'Modern school facilities' },
+            { src: 'src/imgs/hero2.webp', alt: 'Students engaging in activities' },
+            { src: 'src/imgs/hero3.webp', alt: 'Academic excellence' }
+        ],
+        heroIntervalMs: 5000,
         totalSlides: 3,
         interval: null,
         
         init() {
+            // Load carousel config from JSON (admin-editable on Netlify CMS).
+            // If it fails, we keep the hard-coded defaults above.
+            this.loadConfig();
+            this.start();
+        },
+
+        async loadConfig() {
+            try {
+                const response = await fetch('content/images.json', { cache: 'no-store' });
+                if (!response.ok) return;
+
+                const content = await response.json();
+                const home = content?.home;
+
+                if (home?.heroIntervalMs && Number.isFinite(home.heroIntervalMs)) {
+                    this.heroIntervalMs = home.heroIntervalMs;
+                }
+
+                if (Array.isArray(home?.heroSlides) && home.heroSlides.length > 0) {
+                    const sanitizedSlides = home.heroSlides
+                        .filter(s => s && typeof s.src === 'string' && s.src.trim().length > 0)
+                        .map(s => ({
+                            src: s.src.trim(),
+                            alt: typeof s.alt === 'string' ? s.alt.trim() : ''
+                        }));
+
+                    if (sanitizedSlides.length > 0) {
+                        this.slides = sanitizedSlides;
+                    }
+                }
+
+                this.totalSlides = this.slides.length;
+                if (this.activeSlide >= this.totalSlides) {
+                    this.activeSlide = 0;
+                }
+
+                // Restart interval so updated timing/slide count applies.
+                this.start(true);
+            } catch {
+                // Ignore config load failures; defaults remain.
+            }
+        },
+
+        start(forceRestart = false) {
+            if (this.interval && !forceRestart) return;
+            if (this.interval) clearInterval(this.interval);
+
+            this.totalSlides = this.slides.length;
+            if (this.totalSlides <= 1) return;
+
             this.interval = setInterval(() => {
                 this.next();
-            }, 5000);
+            }, this.heroIntervalMs);
+        },
+
+        stop() {
+            if (this.interval) clearInterval(this.interval);
+            this.interval = null;
         },
         
         next() {
+            if (!this.totalSlides) this.totalSlides = this.slides.length;
             this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
         },
         
         prev() {
+            if (!this.totalSlides) this.totalSlides = this.slides.length;
             this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
         },
         
         goToSlide(index) {
             this.activeSlide = index;
-            clearInterval(this.interval);
-            this.interval = setInterval(() => {
-                this.next();
-            }, 5000);
+            this.start(true);
         }
     }));
 

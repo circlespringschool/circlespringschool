@@ -1,0 +1,61 @@
+[build]
+  publish = "."
+  command = "echo 'Static site - no build required'"
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/src/imgs/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/src/styles/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/src/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Admin panel redirect
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+# Clean URLs for HTML files
+[[redirects]]
+  from = "/academics"
+  to = "/academics.html"
+  status = 200
+
+[[redirects]]
+  from = "/student-life"
+  to = "/student-life.html"
+  status = 200
+
+[[redirects]]
+  from = "/activities"
+  to = "/activities.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/aboutcirclesprings.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contactus.html"
+  status = 200
+

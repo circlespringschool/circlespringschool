@@ -1,0 +1,20 @@
+{
+  "home": {
+    "heroIntervalMs": 5000,
+    "heroSlides": [
+      {
+        "src": "src/imgs/hero.webp",
+        "alt": "Modern school facilities"
+      },
+      {
+        "src": "src/imgs/hero2.webp",
+        "alt": "Students engaging in activities"
+      },
+      {
+        "src": "src/imgs/hero3.webp",
+        "alt": "Academic excellence"
+      }
+    ]
+  }
+}
+

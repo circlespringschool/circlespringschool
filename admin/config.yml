@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/imgs/uploads"
+public_folder: "src/imgs/uploads"
+
+collections:
+  - name: "site"
+    label: "Site Content"
+    files:
+      - name: "images"
+        label: "Images"
+        file: "content/images.json"
+        format: "json"
+        fields:
+          - name: "home"
+            label: "Home"
+            widget: "object"
+            fields:
+              - name: "heroIntervalMs"
+                label: "Hero slide interval (ms)"
+                widget: "number"
+                value_type: "int"
+                min: 1000
+                default: 5000
+              - name: "heroSlides"
+                label: "Hero slides"
+                widget: "list"
+                summary: "{{fields.alt}}"
+                fields:
+                  - name: "src"
+                    label: "Image"
+                    widget: "image"
+                  - name: "alt"
+                    label: "Alt text"
+                    widget: "string"
+
