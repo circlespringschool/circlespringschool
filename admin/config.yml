@@ -2,14 +2,20 @@ backend:
   name: git-gateway
   branch: main
 
-# Media storage
+# Media storage - point to where images actually are
 media_folder: "src/imgs"
-public_folder: "/src/imgs"
+public_folder: "src/imgs"
 
 # Site configuration
 site_url: https://sweet-arithmetic-11361b.netlify.app
 display_url: https://sweet-arithmetic-11361b.netlify.app
-logo_url: "/src/imgs/logo-BBA39KOS.webp"
+logo_url: "src/imgs/logo-BBA39KOS.webp"
+
+# Enable media library to show existing images
+media_library:
+  name: uploadcare
+  config:
+    publicKey: "demopublickey"
 
 collections:
   - name: "config"
@@ -41,9 +47,24 @@ collections:
                 fields:
                   - name: "src"
                     label: "Image File"
-                    widget: "image"
-                    choose_url: true
-                    hint: "Select existing image or upload new one"
+                    widget: "select"
+                    options:
+                      - { label: "Hero Image 1", value: "src/imgs/hero.webp" }
+                      - { label: "Hero Image 2", value: "src/imgs/hero2.webp" }
+                      - { label: "Hero Image 3", value: "src/imgs/hero3.webp" }
+                      - { label: "School Building", value: "src/imgs/school-building.webp" }
+                      - { label: "Student Life", value: "src/imgs/studentlife.webp" }
+                      - { label: "Student Life 0", value: "src/imgs/studentlife0.webp" }
+                      - { label: "Student Life 1", value: "src/imgs/studentlife1.webp" }
+                      - { label: "Early Years", value: "src/imgs/early.webp" }
+                      - { label: "Lab", value: "src/imgs/lab.webp" }
+                      - { label: "Enrichment", value: "src/imgs/enrichment.webp" }
+                      - { label: "Sports", value: "src/imgs/sports.webp" }
+                      - { label: "Annual Sports", value: "src/imgs/annualsports.webp" }
+                      - { label: "Culture", value: "src/imgs/culture.webp" }
+                      - { label: "Fair", value: "src/imgs/fair.webp" }
+                      - { label: "Scout", value: "src/imgs/scout.webp" }
+                    hint: "Select from existing images"
                   - name: "alt"
                     label: "Image Description"
                     widget: "string"
@@ -61,8 +82,12 @@ collections:
                 fields:
                   - name: "src"
                     label: "Image"
-                    widget: "image"
-                    choose_url: true
+                    widget: "select"
+                    options:
+                      - { label: "Lab", value: "src/imgs/lab.webp" }
+                      - { label: "Early Years", value: "src/imgs/early.webp" }
+                      - { label: "Enrichment", value: "src/imgs/enrichment.webp" }
+                      - { label: "School Building", value: "src/imgs/school-building.webp" }
                   - name: "alt"
                     label: "Alt Text"
                     widget: "string"
@@ -82,8 +107,14 @@ collections:
                 fields:
                   - name: "src"
                     label: "Photo"
-                    widget: "image"
-                    choose_url: true
+                    widget: "select"
+                    options:
+                      - { label: "Sports", value: "src/imgs/sports.webp" }
+                      - { label: "Annual Sports", value: "src/imgs/annualsports.webp" }
+                      - { label: "Culture", value: "src/imgs/culture.webp" }
+                      - { label: "Fair", value: "src/imgs/fair.webp" }
+                      - { label: "Scout", value: "src/imgs/scout.webp" }
+                      - { label: "Student Life", value: "src/imgs/studentlife.webp" }
                   - name: "alt"
                     label: "Photo Description"
                     widget: "string"
