@@ -162,42 +162,47 @@
         </div>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-8">
+        <nav class="flex items-center space-x-8">
           <ul class="flex space-x-8">
             <li>
               <a
                 href="academics.html"
                 class="font-semibold text-charcoal hover:text-deep-carmine transition"
                 x-text="language === 'en' ? 'Academics' : 'Masomo'"
-              ></a>
+                >Academics</a
+              >
             </li>
             <li>
               <a
                 href="student-life.html"
                 class="font-semibold text-charcoal hover:text-deep-carmine transition"
                 x-text="language === 'en' ? 'Student Life' : 'Maisha ya Wanafunzi'"
-              ></a>
+                >Student Life</a
+              >
             </li>
             <li>
               <a
                 href="activities.html"
                 class="font-semibold text-charcoal hover:text-deep-carmine transition"
                 x-text="language === 'en' ? 'Activities' : 'Shughuli'"
-              ></a>
+                >Activities</a
+              >
             </li>
             <li>
               <a
                 href="aboutcirclesprings.html"
                 class="font-semibold text-charcoal hover:text-deep-carmine transition"
                 x-text="language === 'en' ? 'About' : 'Kuhusu'"
-              ></a>
+                >About</a
+              >
             </li>
             <li>
               <a
                 href="contactus.html"
                 class="font-semibold text-charcoal hover:text-deep-carmine transition"
                 x-text="language === 'en' ? 'Contact' : 'Wasiliana'"
-              ></a>
+                >Contact</a
+              >
             </li>
           </ul>
 
@@ -207,7 +212,9 @@
               @click="open = !open"
               class="bg-gray-100 hover:bg-gray-200 text-charcoal px-3 py-1 rounded-md text-sm font-medium transition flex items-center"
             >
-              <span x-text="language === 'en' ? 'English' : 'Kiswahili'"></span>
+              <span x-text="language === 'en' ? 'English' : 'Kiswahili'"
+                >English</span
+              >
               <i class="fas fa-chevron-down ml-2 text-xs"></i>
             </button>
             <div
