@@ -3,19 +3,25 @@ backend:
   branch: main
 
 media_folder: "src/imgs/uploads"
-public_folder: "src/imgs/uploads"
+public_folder: "/src/imgs/uploads"
+
+# Enable editorial workflow for content review
+publish_mode: editorial_workflow
+
+# Logo for the admin interface
+logo_url: "/src/imgs/logo-BBA39KOS.webp"
 
 collections:
   - name: "site"
     label: "Site Content"
     files:
       - name: "images"
-        label: "Images"
+        label: "Images & Media"
         file: "content/images.json"
         format: "json"
         fields:
           - name: "home"
-            label: "Home"
+            label: "Home Page"
             widget: "object"
             fields:
               - name: "heroIntervalMs"
@@ -23,11 +29,33 @@ collections:
                 widget: "number"
                 value_type: "int"
                 min: 1000
+                max: 10000
                 default: 5000
+                hint: "Time between hero image transitions in milliseconds"
               - name: "heroSlides"
                 label: "Hero slides"
                 widget: "list"
                 summary: "{{fields.alt}}"
+                min: 1
+                max: 5
+                fields:
+                  - name: "src"
+                    label: "Image"
+                    widget: "image"
+                    hint: "Recommended size: 1920x1080px"
+                  - name: "alt"
+                    label: "Alt text"
+                    widget: "string"
+                    hint: "Describe the image for accessibility"
+          - name: "academics"
+            label: "Academics Page"
+            widget: "object"
+            collapsed: true
+            fields:
+              - name: "featuredImages"
+                label: "Featured Images"
+                widget: "list"
+                summary: "{{fields.title}}"
                 fields:
                   - name: "src"
                     label: "Image"
@@ -35,4 +63,30 @@ collections:
                   - name: "alt"
                     label: "Alt text"
                     widget: "string"
+                  - name: "title"
+                    label: "Title"
+                    widget: "string"
+          - name: "activities"
+            label: "Activities Page"
+            widget: "object"
+            collapsed: true
+            fields:
+              - name: "gallery"
+                label: "Activity Gallery"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "src"
+                    label: "Image"
+                    widget: "image"
+                  - name: "alt"
+                    label: "Alt text"
+                    widget: "string"
+                  - name: "title"
+                    label: "Activity Title"
+                    widget: "string"
+                  - name: "description"
+                    label: "Description"
+                    widget: "text"
+                    required: false
 
