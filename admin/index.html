@@ -1,29 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Circle Spring Academy Admin</title>
+    <link rel="icon" type="image/x-icon" href="/src/imgs/logo-BBA39KOS.webp" />
   </head>
   <body>
-    <!-- Required for Netlify Identity login (when hosted on Netlify). -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <!-- Decap CMS (formerly Netlify CMS). -->
+    <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <script>
-      // Optional: redirect back to /admin after login.
+      // Initialize Netlify Identity
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', (user) => {
+        window.netlifyIdentity.on("init", (user) => {
           if (!user) {
-            window.netlifyIdentity.on('login', () => {
-              document.location.href = '/admin/';
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
             });
           }
         });
       }
+
+      // Auto-open login modal if not authenticated
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.netlifyIdentity && !window.netlifyIdentity.currentUser()) {
+          setTimeout(() => {
+            window.netlifyIdentity.open();
+          }, 500);
+        }
+      });
     </script>
   </body>
 </html>
-
