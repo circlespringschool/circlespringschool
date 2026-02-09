@@ -58,7 +58,7 @@ body {
             background-color: white;
             min-width: 120px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
+            z-index: 1000;
             border-radius: 4px;
             overflow: hidden;
         }
@@ -72,8 +72,54 @@ body {
         .language-dropdown-content a:hover {
             background-color: #f1f1f1;
         }
-        .language-dropdown:hover .language-dropdown-content {
-            display: block;
+        
+        /* Header and Navigation Styles */
+        header {
+            z-index: 1000;
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        .mobile-menu {
+            z-index: 999;
+        }
+        
+        /* Ensure navbar is visible */
+        nav {
+            display: flex !important;
+        }
+        
+        /* Force visibility of navigation elements */
+        header nav ul {
+            display: flex !important;
+        }
+        
+        header nav ul li {
+            display: list-item !important;
+        }
+        
+        header nav ul li a {
+            display: block !important;
+            color: #36454F !important;
+        }
+        
+        /* Mobile menu toggle */
+        @media (max-width: 768px) {
+            .mobile-menu-hidden {
+                display: none;
+            }
+            
+            /* Show mobile menu button */
+            header .md\\:hidden {
+                display: flex !important;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            /* Show desktop navigation */
+            header .hidden.md\\:flex {
+                display: flex !important;
+            }
         }
         
         /* Custom styles for other elements */

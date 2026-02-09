@@ -2,18 +2,18 @@ backend:
   name: git-gateway
   branch: main
 
+# Media storage
 media_folder: "src/imgs/uploads"
 public_folder: "/src/imgs/uploads"
 
-# Enable editorial workflow for content review
-publish_mode: editorial_workflow
-
-# Logo for the admin interface
+# Site configuration
+site_url: https://sweet-arithmetic-11361b.netlify.app
+display_url: https://sweet-arithmetic-11361b.netlify.app
 logo_url: "/src/imgs/logo-BBA39KOS.webp"
 
 collections:
-  - name: "site"
-    label: "Site Content"
+  - name: "config"
+    label: "Site Configuration"
     files:
       - name: "images"
         label: "Images & Media"
@@ -21,72 +21,78 @@ collections:
         format: "json"
         fields:
           - name: "home"
-            label: "Home Page"
+            label: "Home Page Images"
             widget: "object"
             fields:
               - name: "heroIntervalMs"
-                label: "Hero slide interval (ms)"
+                label: "Hero Slide Duration (milliseconds)"
                 widget: "number"
-                value_type: "int"
-                min: 1000
-                max: 10000
                 default: 5000
-                hint: "Time between hero image transitions in milliseconds"
+                min: 2000
+                max: 10000
+                step: 500
+                hint: "How long each hero image displays (2-10 seconds)"
               - name: "heroSlides"
-                label: "Hero slides"
+                label: "Hero Images"
                 widget: "list"
-                summary: "{{fields.alt}}"
+                summary: "{{fields.alt}} - {{fields.src}}"
                 min: 1
-                max: 5
+                max: 6
                 fields:
                   - name: "src"
-                    label: "Image"
+                    label: "Image File"
                     widget: "image"
-                    hint: "Recommended size: 1920x1080px"
+                    allow_multiple: false
+                    hint: "Upload hero image (recommended: 1920x1080px)"
+                    media_library:
+                      config:
+                        multiple: false
                   - name: "alt"
-                    label: "Alt text"
+                    label: "Image Description"
                     widget: "string"
-                    hint: "Describe the image for accessibility"
+                    hint: "Describe what's in the image for accessibility"
           - name: "academics"
-            label: "Academics Page"
+            label: "Academics Page Images"
             widget: "object"
             collapsed: true
             fields:
               - name: "featuredImages"
-                label: "Featured Images"
+                label: "Academic Features"
                 widget: "list"
-                summary: "{{fields.title}}"
+                summary: "{{fields.title}} - {{fields.src}}"
+                required: false
                 fields:
                   - name: "src"
                     label: "Image"
                     widget: "image"
                   - name: "alt"
-                    label: "Alt text"
+                    label: "Alt Text"
                     widget: "string"
                   - name: "title"
-                    label: "Title"
+                    label: "Feature Title"
                     widget: "string"
           - name: "activities"
-            label: "Activities Page"
+            label: "Activities Page Images"
             widget: "object"
             collapsed: true
             fields:
               - name: "gallery"
-                label: "Activity Gallery"
+                label: "Activity Photos"
                 widget: "list"
-                summary: "{{fields.title}}"
+                summary: "{{fields.title}} - {{fields.src}}"
+                required: false
                 fields:
                   - name: "src"
-                    label: "Image"
+                    label: "Photo"
                     widget: "image"
                   - name: "alt"
-                    label: "Alt text"
+                    label: "Photo Description"
                     widget: "string"
                   - name: "title"
-                    label: "Activity Title"
+                    label: "Activity Name"
                     widget: "string"
                   - name: "description"
-                    label: "Description"
+                    label: "Activity Description"
                     widget: "text"
                     required: false
 
