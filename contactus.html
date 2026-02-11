@@ -135,13 +135,49 @@
                    x-text="language === 'en' ? 'Admissions are ongoing' : 'Uandikishaji unaendelea'">
                 </p>
                 
-                <!-- Phone Number -->
-                <a href="tel:+2540111427110" 
-                   class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full text-sm font-medium transition duration-200 whitespace-nowrap flex-shrink-0">
-                    <i class="fas fa-phone text-xs"></i>
-                    <span class="hidden sm:inline">+254 0111 427 110</span>
-                    <span class="sm:hidden">Call Now</span>
-                </a>
+                <!-- Phone Number with WhatsApp and SMS options -->
+                <div x-data="{ dropdownOpen: false }" class="relative">
+                    <a
+                      href="#"
+                      @click.prevent="dropdownOpen = !dropdownOpen"
+                      class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full text-sm font-medium transition duration-200 whitespace-nowrap flex-shrink-0"
+                    >
+                      <i class="fas fa-phone text-xs"></i>
+                      <span class="hidden sm:inline">+254 0111 427 110</span>
+                      <span class="sm:hidden">Contact</span>
+                      <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </a>
+
+                    <div
+                      x-show="dropdownOpen"
+                      @click.away="dropdownOpen = false"
+                      class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50"
+                      style="display: none;"
+                    >
+                      <a
+                        href="tel:+2540111427110"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                      >
+                        <i class="fas fa-phone text-green-500 mr-2"></i>
+                        Call Now
+                      </a>
+                      <a
+                        href="https://wa.me/2540111427110?text=Hello%20Circle%20Spring%20Academy,%20I'm%20interested%20in%20learning%20more%20about%20your%20school."
+                        target="_blank"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                      >
+                        <i class="fab fa-whatsapp text-green-500 mr-2"></i>
+                        WhatsApp Message
+                      </a>
+                      <a
+                        href="sms:+2540111427110?body=Hello%20Circle%20Spring%20Academy,%20I'm%20interested%20in%20learning%20more%20about%20your%20school."
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                      >
+                        <i class="fas fa-comment text-green-500 mr-2"></i>
+                        Send SMS
+                      </a>
+                    </div>
+                  </div>
             </div>
 
             <!-- Close Button -->
@@ -409,7 +445,7 @@
                             <p class="text-charcoal mb-2"
                                 x-text="language === 'en' ? 'Send us an email and we will respond as soon as possible:' : 'Tutumie barua pepe na tutajibu haraka iwezekanavyo:'">
                             </p>
-                            <a href="mailto:circlespringschool@gmail.com"
+                            <a href="mailto:circlespringschool@gmail.com?subject=Inquiry%20from%20Website"
                                 class="text-deep-carmine font-medium hover:underline">circlespringschool@gmail.com</a>
                         </div>
 
