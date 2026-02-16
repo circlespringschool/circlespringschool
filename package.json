@@ -1,0 +1,21 @@
+{
+  "name": "circle-spring-school",
+  "version": "1.0.0",
+  "description": "Website for Circle Spring Academy",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Build completed'",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "education",
+    "school",
+    "kenya"
+  ],
+  "author": "Circle Spring Academy",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}
