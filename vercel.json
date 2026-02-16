@@ -8,10 +8,11 @@
     { "src": "src/**/*", "use": "@vercel/static" },
     { "src": "content/**/*", "use": "@vercel/static" }
   ],
-  "rewrites": [
-    { "source": "/admin/(.*)", "destination": "/admin/index.html" },
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/config.yml", "destination": "/admin/config.yml" }
+  "routes": [
+    { "src": "/api/auth/begin", "dest": "/api/auth/begin.js" },
+    { "src": "/api/auth/complete", "dest": "/api/auth/complete.js" },
+    { "src": "/admin/(.*)", "dest": "/admin/index.html" },
+    { "src": "/config.yml", "dest": "/admin/config.yml" }
   ]
 }
 
