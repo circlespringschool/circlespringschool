@@ -1,3 +1,4 @@
+--- vercel.json (原始)
 {
   "version": 2,
   "builds": [
@@ -11,5 +12,23 @@
     { "source": "/admin/(.*)", "destination": "/admin/index.html" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/config.yml", "destination": "/admin/config.yml" }
+  ]
+}
+
++++ vercel.json (修改后)
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "admin/**/*", "use": "@vercel/static" },
+    { "src": "src/**/*", "use": "@vercel/static" },
+    { "src": "content/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/auth/begin", "dest": "/api/auth/begin.js" },
+    { "src": "/api/auth/complete", "dest": "/api/auth/complete.js" },
+    { "src": "/admin/(.*)", "dest": "/admin/index.html" },
+    { "src": "/config.yml", "dest": "/admin/config.yml" }
   ]
 }

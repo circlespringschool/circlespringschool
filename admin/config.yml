@@ -3,7 +3,7 @@ backend:
   repo: RickMuchira/circlespringschool
   branch: main
   base_url: https://circlespringschool-red.vercel.app
-  auth_endpoint: api/auth/begin
+  auth_endpoint: /api/auth/begin
 
 # Media storage - point to where images actually are
 media_folder: "src/imgs"
@@ -14,7 +14,7 @@ site_url: https://circlespringschool-red.vercel.app
 display_url: https://circlespringschool-red.vercel.app
 logo_url: "src/imgs/logo-BBA39KOS.webp"
 
-# Enable media library to show existing images
+# Enable media library for image uploads
 media_library:
   name: uploadcare
   config:
@@ -55,15 +55,33 @@ collections:
                       - { label: "Hero Image 1", value: "src/imgs/hero.webp" }
                       - { label: "Hero Image 2", value: "src/imgs/hero2.webp" }
                       - { label: "Hero Image 3", value: "src/imgs/hero3.webp" }
-                      - { label: "School Building", value: "src/imgs/school-building.webp" }
-                      - { label: "Student Life", value: "src/imgs/studentlife.webp" }
-                      - { label: "Student Life 0", value: "src/imgs/studentlife0.webp" }
-                      - { label: "Student Life 1", value: "src/imgs/studentlife1.webp" }
+                      - {
+                          label: "School Building",
+                          value: "src/imgs/school-building.webp",
+                        }
+                      - {
+                          label: "Student Life",
+                          value: "src/imgs/studentlife.webp",
+                        }
+                      - {
+                          label: "Student Life 0",
+                          value: "src/imgs/studentlife0.webp",
+                        }
+                      - {
+                          label: "Student Life 1",
+                          value: "src/imgs/studentlife1.webp",
+                        }
                       - { label: "Early Years", value: "src/imgs/early.webp" }
                       - { label: "Lab", value: "src/imgs/lab.webp" }
-                      - { label: "Enrichment", value: "src/imgs/enrichment.webp" }
+                      - {
+                          label: "Enrichment",
+                          value: "src/imgs/enrichment.webp",
+                        }
                       - { label: "Sports", value: "src/imgs/sports.webp" }
-                      - { label: "Annual Sports", value: "src/imgs/annualsports.webp" }
+                      - {
+                          label: "Annual Sports",
+                          value: "src/imgs/annualsports.webp",
+                        }
                       - { label: "Culture", value: "src/imgs/culture.webp" }
                       - { label: "Fair", value: "src/imgs/fair.webp" }
                       - { label: "Scout", value: "src/imgs/scout.webp" }
@@ -89,8 +107,14 @@ collections:
                     options:
                       - { label: "Lab", value: "src/imgs/lab.webp" }
                       - { label: "Early Years", value: "src/imgs/early.webp" }
-                      - { label: "Enrichment", value: "src/imgs/enrichment.webp" }
-                      - { label: "School Building", value: "src/imgs/school-building.webp" }
+                      - {
+                          label: "Enrichment",
+                          value: "src/imgs/enrichment.webp",
+                        }
+                      - {
+                          label: "School Building",
+                          value: "src/imgs/school-building.webp",
+                        }
                   - name: "alt"
                     label: "Alt Text"
                     widget: "string"
@@ -113,11 +137,17 @@ collections:
                     widget: "select"
                     options:
                       - { label: "Sports", value: "src/imgs/sports.webp" }
-                      - { label: "Annual Sports", value: "src/imgs/annualsports.webp" }
+                      - {
+                          label: "Annual Sports",
+                          value: "src/imgs/annualsports.webp",
+                        }
                       - { label: "Culture", value: "src/imgs/culture.webp" }
                       - { label: "Fair", value: "src/imgs/fair.webp" }
                       - { label: "Scout", value: "src/imgs/scout.webp" }
-                      - { label: "Student Life", value: "src/imgs/studentlife.webp" }
+                      - {
+                          label: "Student Life",
+                          value: "src/imgs/studentlife.webp",
+                        }
                   - name: "alt"
                     label: "Photo Description"
                     widget: "string"
@@ -128,4 +158,3 @@ collections:
                     label: "Activity Description"
                     widget: "text"
                     required: false
-
