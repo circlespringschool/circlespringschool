@@ -3,26 +3,20 @@ backend:
   repo: RickMuchira/circlespringschool
   branch: main
   base_url: https://circlespringschool-red.vercel.app
-  auth_endpoint: /api/auth/begin
+  auth_endpoint: /api/auth
 
-# Media storage - point to where images actually are
+# Media files
 media_folder: "src/imgs"
-public_folder: "src/imgs"
+public_folder: "/src/imgs"
 
-# Site configuration
+# Site settings
 site_url: https://circlespringschool-red.vercel.app
 display_url: https://circlespringschool-red.vercel.app
-logo_url: "src/imgs/logo-BBA39KOS.webp"
-
-# Enable media library for image uploads
-media_library:
-  name: uploadcare
-  config:
-    publicKey: "demopublickey"
+logo_url: "/src/imgs/logo-BBA39KOS.webp"
 
 collections:
-  - name: "config"
-    label: "Site Configuration"
+  - name: "content"
+    label: "Site Content"
     files:
       - name: "images"
         label: "Images & Media"
@@ -30,7 +24,7 @@ collections:
         format: "json"
         fields:
           - name: "home"
-            label: "Home Page Images"
+            label: "Homepage"
             widget: "object"
             fields:
               - name: "heroIntervalMs"
@@ -39,66 +33,38 @@ collections:
                 default: 5000
                 min: 2000
                 max: 10000
-                step: 500
-                hint: "How long each hero image displays (2-10 seconds)"
+                hint: "Time between hero image transitions"
               - name: "heroSlides"
                 label: "Hero Images"
                 widget: "list"
                 summary: "{{fields.alt}}"
-                min: 1
-                max: 6
                 fields:
                   - name: "src"
-                    label: "Image File"
+                    label: "Image Path"
                     widget: "select"
                     options:
                       - { label: "Hero Image 1", value: "src/imgs/hero.webp" }
                       - { label: "Hero Image 2", value: "src/imgs/hero2.webp" }
                       - { label: "Hero Image 3", value: "src/imgs/hero3.webp" }
-                      - {
-                          label: "School Building",
-                          value: "src/imgs/school-building.webp",
-                        }
-                      - {
-                          label: "Student Life",
-                          value: "src/imgs/studentlife.webp",
-                        }
-                      - {
-                          label: "Student Life 0",
-                          value: "src/imgs/studentlife0.webp",
-                        }
-                      - {
-                          label: "Student Life 1",
-                          value: "src/imgs/studentlife1.webp",
-                        }
+                      - { label: "School Building", value: "src/imgs/school-building.webp" }
+                      - { label: "Student Life", value: "src/imgs/studentlife.webp" }
                       - { label: "Early Years", value: "src/imgs/early.webp" }
                       - { label: "Lab", value: "src/imgs/lab.webp" }
-                      - {
-                          label: "Enrichment",
-                          value: "src/imgs/enrichment.webp",
-                        }
+                      - { label: "Enrichment", value: "src/imgs/enrichment.webp" }
                       - { label: "Sports", value: "src/imgs/sports.webp" }
-                      - {
-                          label: "Annual Sports",
-                          value: "src/imgs/annualsports.webp",
-                        }
                       - { label: "Culture", value: "src/imgs/culture.webp" }
-                      - { label: "Fair", value: "src/imgs/fair.webp" }
-                      - { label: "Scout", value: "src/imgs/scout.webp" }
-                    hint: "Select from existing images"
                   - name: "alt"
                     label: "Image Description"
                     widget: "string"
-                    hint: "Describe what's in the image for accessibility"
+                    hint: "Describe the image for accessibility"
           - name: "academics"
-            label: "Academics Page Images"
+            label: "Academics Page"
             widget: "object"
             collapsed: true
             fields:
               - name: "featuredImages"
-                label: "Academic Features"
+                label: "Featured Images"
                 widget: "list"
-                summary: "{{fields.title}}"
                 required: false
                 fields:
                   - name: "src"
@@ -107,29 +73,22 @@ collections:
                     options:
                       - { label: "Lab", value: "src/imgs/lab.webp" }
                       - { label: "Early Years", value: "src/imgs/early.webp" }
-                      - {
-                          label: "Enrichment",
-                          value: "src/imgs/enrichment.webp",
-                        }
-                      - {
-                          label: "School Building",
-                          value: "src/imgs/school-building.webp",
-                        }
+                      - { label: "Enrichment", value: "src/imgs/enrichment.webp" }
+                      - { label: "School Building", value: "src/imgs/school-building.webp" }
                   - name: "alt"
                     label: "Alt Text"
                     widget: "string"
                   - name: "title"
-                    label: "Feature Title"
+                    label: "Title"
                     widget: "string"
           - name: "activities"
-            label: "Activities Page Images"
+            label: "Activities Page"
             widget: "object"
             collapsed: true
             fields:
               - name: "gallery"
-                label: "Activity Photos"
+                label: "Activity Gallery"
                 widget: "list"
-                summary: "{{fields.title}}"
                 required: false
                 fields:
                   - name: "src"
@@ -137,24 +96,13 @@ collections:
                     widget: "select"
                     options:
                       - { label: "Sports", value: "src/imgs/sports.webp" }
-                      - {
-                          label: "Annual Sports",
-                          value: "src/imgs/annualsports.webp",
-                        }
+                      - { label: "Annual Sports", value: "src/imgs/annualsports.webp" }
                       - { label: "Culture", value: "src/imgs/culture.webp" }
                       - { label: "Fair", value: "src/imgs/fair.webp" }
                       - { label: "Scout", value: "src/imgs/scout.webp" }
-                      - {
-                          label: "Student Life",
-                          value: "src/imgs/studentlife.webp",
-                        }
                   - name: "alt"
-                    label: "Photo Description"
+                    label: "Description"
                     widget: "string"
                   - name: "title"
                     label: "Activity Name"
                     widget: "string"
-                  - name: "description"
-                    label: "Activity Description"
-                    widget: "text"
-                    required: false
