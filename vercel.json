@@ -5,12 +5,14 @@
     { "src": "*.html", "use": "@vercel/static" },
     { "src": "admin/**/*", "use": "@vercel/static" },
     { "src": "src/**/*", "use": "@vercel/static" },
-    { "src": "content/**/*", "use": "@vercel/static" }
+    { "src": "content/**/*", "use": "@vercel/static" },
+    { "src": "studio/**/*", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/auth", "dest": "/api/auth.js" },
     { "src": "/admin/config.yml", "dest": "/admin/config.yml" },
     { "src": "/config.yml", "dest": "/admin/config.yml" },
-    { "src": "/admin/(.*)", "dest": "/admin/index.html" }
+    { "src": "/admin/(.*)", "dest": "/admin/index.html" },
+    { "src": "/studio/(.*)", "dest": "/studio/index.html" }
   ]
 }
