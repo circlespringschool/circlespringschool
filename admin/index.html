@@ -27,87 +27,7 @@
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
     <script>
-      // Simple, clean configuration
-      const config = {
-        backend: {
-          name: 'github',
-          repo: 'RickMuchira/circlespringschool',
-          branch: 'main',
-          base_url: 'https://circlespringschool-red.vercel.app',
-          auth_endpoint: '/api/auth'
-        },
-        
-        media_folder: 'src/imgs',
-        public_folder: '/src/imgs',
-        
-        site_url: 'https://circlespringschool-red.vercel.app',
-        display_url: 'https://circlespringschool-red.vercel.app',
-        logo_url: '/src/imgs/logo-BBA39KOS.webp',
-        
-        collections: [
-          {
-            name: 'site_content',
-            label: 'Website Content',
-            files: [
-              {
-                name: 'hero_images',
-                label: 'Hero Images',
-                file: 'content/images.json',
-                format: 'json',
-                fields: [
-                  {
-                    name: 'home',
-                    label: 'Homepage Settings',
-                    widget: 'object',
-                    fields: [
-                      {
-                        name: 'heroIntervalMs',
-                        label: 'Slide Duration (milliseconds)',
-                        widget: 'number',
-                        default: 5000,
-                        min: 2000,
-                        max: 10000
-                      },
-                      {
-                        name: 'heroSlides',
-                        label: 'Hero Slides',
-                        widget: 'list',
-                        summary: '{{fields.alt}}',
-                        fields: [
-                          {
-                            name: 'src',
-                            label: 'Image',
-                            widget: 'select',
-                            options: [
-                              'src/imgs/hero.webp',
-                              'src/imgs/hero2.webp',
-                              'src/imgs/hero3.webp',
-                              'src/imgs/school-building.webp',
-                              'src/imgs/studentlife.webp',
-                              'src/imgs/early.webp',
-                              'src/imgs/lab.webp',
-                              'src/imgs/enrichment.webp',
-                              'src/imgs/sports.webp',
-                              'src/imgs/culture.webp'
-                            ]
-                          },
-                          {
-                            name: 'alt',
-                            label: 'Description',
-                            widget: 'string'
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      };
-      
-      // Initialize CMS when DOM is ready
+      // Initialize CMS when DOM is ready - it will automatically load config.yml
       document.addEventListener('DOMContentLoaded', function() {
         // Remove loading message
         const loadingDiv = document.querySelector('.loading');
@@ -119,14 +39,19 @@
         setTimeout(() => {
           try {
             if (window.CMS) {
-              window.CMS.init({ config });
+              // CMS.init() without parameters will automatically load config.yml
+              window.CMS.init();
+              console.log('CMS initialized successfully');
             } else {
-              console.error('CMS not loaded');
+              console.error('CMS library not loaded');
+              if (loadingDiv) {
+                loadingDiv.innerHTML = 'Error: CMS library failed to load. Please refresh the page.';
+              }
             }
           } catch (error) {
             console.error('CMS initialization error:', error);
             if (loadingDiv) {
-              loadingDiv.innerHTML = 'Error loading CMS. Please refresh the page.';
+              loadingDiv.innerHTML = 'Error loading CMS: ' + error.message + '. Please refresh the page.';
             }
           }
         }, 1000);
