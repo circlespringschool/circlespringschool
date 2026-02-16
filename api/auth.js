@@ -42,12 +42,16 @@ export default async function handler(req, res) {
         throw new Error('No access token received from GitHub');
       }
 
-      // Return success page that communicates with Decap CMS
+      // Store token in a way that CMS can access it and redirect directly
+      const redirectUrl = `/admin/#access_token=${encodeURIComponent(tokenData.access_token)}&token_type=bearer&provider=github`;
+      
+      // Return a simple redirect page
       const html = `
         <!DOCTYPE html>
         <html>
           <head>
             <title>Authorization Success</title>
+            <meta http-equiv="refresh" content="1;url=${redirectUrl}">
             <style>
               body {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -75,71 +79,14 @@ export default async function handler(req, res) {
           <body>
             <div class="container">
               <div class="success">✅ Authorization successful!</div>
-              <p>Redirecting back to CMS...</p>
+              <p>Redirecting to CMS...</p>
+              <p><a href="${redirectUrl}">Click here if not redirected automatically</a></p>
             </div>
             <script>
-              console.log('Auth success page loaded');
-              
-              // Send success message to parent window (Decap CMS)
-              function sendAuthSuccess() {
-                console.log('Attempting to send auth success message');
-                
-                // Try multiple message formats for compatibility
-                const token = '${tokenData.access_token}';
-                
-                if (window.opener) {
-                  console.log('Sending to opener window');
-                  // Standard Netlify CMS format
-                  window.opener.postMessage(
-                    'authorization:github:success:' + JSON.stringify({
-                      token: token,
-                      provider: 'github'
-                    }),
-                    '*'
-                  );
-                  
-                  // Alternative format
-                  window.opener.postMessage({
-                    type: 'authorization-success',
-                    token: token,
-                    provider: 'github'
-                  }, '*');
-                  
-                  setTimeout(() => {
-                    console.log('Closing popup window');
-                    window.close();
-                  }, 2000);
-                  
-                } else if (window.parent && window.parent !== window) {
-                  console.log('Sending to parent frame');
-                  window.parent.postMessage({
-                    type: 'authorization-success',
-                    token: token,
-                    provider: 'github'
-                  }, '*');
-                  
-                } else {
-                  console.log('No parent window found, redirecting directly');
-                  // Direct redirect with token in URL
-                  setTimeout(() => {
-                    window.location.href = '/admin/#access_token=' + encodeURIComponent(token) + '&token_type=bearer&provider=github';
-                  }, 1000);
-                }
-              }
-              
-              // Send message immediately
-              sendAuthSuccess();
-              
-              // Try again after delays to ensure delivery
-              setTimeout(sendAuthSuccess, 100);
-              setTimeout(sendAuthSuccess, 500);
-              setTimeout(sendAuthSuccess, 1000);
-              
-              // Fallback redirect after 3 seconds if nothing worked
+              // Immediate redirect
               setTimeout(() => {
-                console.log('Fallback redirect after 3 seconds');
-                window.location.href = '/admin/';
-              }, 3000);
+                window.location.href = '${redirectUrl}';
+              }, 500);
             </script>
           </body>
         </html>
