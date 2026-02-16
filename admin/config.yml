@@ -2,8 +2,10 @@ backend:
   name: github
   repo: RickMuchira/circlespringschool
   branch: main
+  site_domain: circlespringschool-red.vercel.app
   base_url: https://circlespringschool-red.vercel.app
   auth_endpoint: /api/auth
+  cms_label_prefix: "cms/"
 
 # Media files
 media_folder: "src/imgs"
