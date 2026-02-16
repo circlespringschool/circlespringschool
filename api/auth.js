@@ -82,42 +82,64 @@ export default async function handler(req, res) {
               
               // Send success message to parent window (Decap CMS)
               function sendAuthSuccess() {
-                const message = {
-                  type: 'authorization-success',
-                  token: '${tokenData.access_token}',
-                  provider: 'github'
-                };
+                console.log('Attempting to send auth success message');
                 
-                console.log('Sending auth success message to parent');
+                // Try multiple message formats for compatibility
+                const token = '${tokenData.access_token}';
                 
                 if (window.opener) {
-                  // For popup window
+                  console.log('Sending to opener window');
+                  // Standard Netlify CMS format
                   window.opener.postMessage(
                     'authorization:github:success:' + JSON.stringify({
-                      token: '${tokenData.access_token}',
+                      token: token,
                       provider: 'github'
                     }),
                     '*'
                   );
                   
+                  // Alternative format
+                  window.opener.postMessage({
+                    type: 'authorization-success',
+                    token: token,
+                    provider: 'github'
+                  }, '*');
+                  
                   setTimeout(() => {
+                    console.log('Closing popup window');
                     window.close();
-                  }, 1000);
+                  }, 2000);
+                  
                 } else if (window.parent && window.parent !== window) {
-                  // For iframe
-                  window.parent.postMessage(message, '*');
+                  console.log('Sending to parent frame');
+                  window.parent.postMessage({
+                    type: 'authorization-success',
+                    token: token,
+                    provider: 'github'
+                  }, '*');
+                  
                 } else {
-                  // Fallback - redirect to admin
-                  console.log('No parent window, redirecting to admin');
-                  window.location.href = '/admin#access_token=' + encodeURIComponent('${tokenData.access_token}');
+                  console.log('No parent window found, redirecting directly');
+                  // Direct redirect with token in URL
+                  setTimeout(() => {
+                    window.location.href = '/admin/#access_token=' + encodeURIComponent(token) + '&token_type=bearer&provider=github';
+                  }, 1000);
                 }
               }
               
-              // Send message when page loads
+              // Send message immediately
               sendAuthSuccess();
               
-              // Also try sending after a short delay
+              // Try again after delays to ensure delivery
+              setTimeout(sendAuthSuccess, 100);
               setTimeout(sendAuthSuccess, 500);
+              setTimeout(sendAuthSuccess, 1000);
+              
+              // Fallback redirect after 3 seconds if nothing worked
+              setTimeout(() => {
+                console.log('Fallback redirect after 3 seconds');
+                window.location.href = '/admin/';
+              }, 3000);
             </script>
           </body>
         </html>
@@ -147,7 +169,7 @@ export default async function handler(req, res) {
     : 'https://circlespringschool-red.vercel.app';
     
   const redirectUri = `${baseUrl}/api/auth`;
-  const scope = 'repo,user';
+  const scope = 'repo,user,read:org';
   const randomState = Math.random().toString(36).substring(7);
 
   const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scope}&state=${randomState}`;
