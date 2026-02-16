@@ -16,6 +16,7 @@
   "author": "Circle Spring Academy",
   "license": "ISC",
   "dependencies": {
-    "serve": "^14.2.3"
+    "serve": "^14.2.3",
+    "netlify-cms-oauth-provider-node": "^2.0.0"
   }
 }

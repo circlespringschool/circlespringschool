@@ -1,14 +1,17 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: RickMuchira/circlespringschool
   branch: main
+  base_url: https://circlespringschool-red.vercel.app
+  auth_endpoint: api/auth/begin
 
 # Media storage - point to where images actually are
 media_folder: "src/imgs"
 public_folder: "src/imgs"
 
 # Site configuration
-site_url: https://sweet-arithmetic-11361b.netlify.app
-display_url: https://sweet-arithmetic-11361b.netlify.app
+site_url: https://circlespringschool-red.vercel.app
+display_url: https://circlespringschool-red.vercel.app
 logo_url: "src/imgs/logo-BBA39KOS.webp"
 
 # Enable media library to show existing images
