@@ -4,11 +4,12 @@
   "description": "Website for Circle Spring Academy",
   "main": "index.html",
   "scripts": {
-    "dev": "npx serve .",
+    "dev": "concurrently \"npx serve .\" \"npx @sanity/cli start\"",
     "build": "echo 'Build completed'",
     "start": "npx serve .",
     "sanity": "npx @sanity/cli login && npx @sanity/cli init",
-    "studio": "npx @sanity/cli start"
+    "studio": "npx @sanity/cli start",
+    "setup": "npx @sanity/cli install"
   },
   "keywords": [
     "education",
@@ -29,6 +30,7 @@
     "@sanity/cli": "^3.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "concurrently": "^8.2.0",
     "typescript": "^5.0.0"
   }
 }
