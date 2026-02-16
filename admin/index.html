@@ -27,7 +27,7 @@
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
     <script>
-      // Initialize CMS when DOM is ready - it will automatically load config.yml
+      // Initialize CMS when DOM is ready
       document.addEventListener('DOMContentLoaded', function() {
         // Remove loading message
         const loadingDiv = document.querySelector('.loading');
@@ -35,13 +35,174 @@
           loadingDiv.textContent = 'Initializing CMS...';
         }
         
-        // Initialize CMS with a delay to ensure DOM is stable
+        // Initialize CMS with explicit configuration to ensure it works
         setTimeout(() => {
           try {
             if (window.CMS) {
-              // CMS.init() without parameters will automatically load config.yml
-              window.CMS.init();
-              console.log('CMS initialized successfully');
+              // Use explicit configuration instead of relying on config.yml loading
+              const config = {
+                backend: {
+                  name: 'github',
+                  repo: 'RickMuchira/circlespringschool',
+                  branch: 'main',
+                  base_url: 'https://circlespringschool-red.vercel.app',
+                  auth_endpoint: '/api/auth'
+                },
+                
+                media_folder: 'src/imgs',
+                public_folder: '/src/imgs',
+                
+                site_url: 'https://circlespringschool-red.vercel.app',
+                display_url: 'https://circlespringschool-red.vercel.app',
+                logo_url: '/src/imgs/logo-BBA39KOS.webp',
+                
+                collections: [
+                  {
+                    name: 'content',
+                    label: 'Site Content',
+                    files: [
+                      {
+                        name: 'images',
+                        label: 'Images & Media',
+                        file: 'content/images.json',
+                        format: 'json',
+                        fields: [
+                          {
+                            name: 'home',
+                            label: 'Homepage',
+                            widget: 'object',
+                            fields: [
+                              {
+                                name: 'heroIntervalMs',
+                                label: 'Hero Slide Duration (milliseconds)',
+                                widget: 'number',
+                                default: 5000,
+                                min: 2000,
+                                max: 10000,
+                                hint: 'Time between hero image transitions'
+                              },
+                              {
+                                name: 'heroSlides',
+                                label: 'Hero Images',
+                                widget: 'list',
+                                summary: '{{fields.alt}}',
+                                fields: [
+                                  {
+                                    name: 'src',
+                                    label: 'Image Path',
+                                    widget: 'select',
+                                    options: [
+                                      { label: 'Hero Image 1', value: 'src/imgs/hero.webp' },
+                                      { label: 'Hero Image 2', value: 'src/imgs/hero2.webp' },
+                                      { label: 'Hero Image 3', value: 'src/imgs/hero3.webp' },
+                                      { label: 'School Building', value: 'src/imgs/school-building.webp' },
+                                      { label: 'Student Life', value: 'src/imgs/studentlife.webp' },
+                                      { label: 'Early Years', value: 'src/imgs/early.webp' },
+                                      { label: 'Lab', value: 'src/imgs/lab.webp' },
+                                      { label: 'Enrichment', value: 'src/imgs/enrichment.webp' },
+                                      { label: 'Sports', value: 'src/imgs/sports.webp' },
+                                      { label: 'Culture', value: 'src/imgs/culture.webp' }
+                                    ]
+                                  },
+                                  {
+                                    name: 'alt',
+                                    label: 'Image Description',
+                                    widget: 'string',
+                                    hint: 'Describe the image for accessibility'
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            name: 'academics',
+                            label: 'Academics Page',
+                            widget: 'object',
+                            collapsed: true,
+                            fields: [
+                              {
+                                name: 'featuredImages',
+                                label: 'Featured Images',
+                                widget: 'list',
+                                required: false,
+                                fields: [
+                                  {
+                                    name: 'src',
+                                    label: 'Image',
+                                    widget: 'select',
+                                    options: [
+                                      { label: 'Lab', value: 'src/imgs/lab.webp' },
+                                      { label: 'Early Years', value: 'src/imgs/early.webp' },
+                                      { label: 'Enrichment', value: 'src/imgs/enrichment.webp' },
+                                      { label: 'School Building', value: 'src/imgs/school-building.webp' }
+                                    ]
+                                  },
+                                  {
+                                    name: 'alt',
+                                    label: 'Alt Text',
+                                    widget: 'string'
+                                  },
+                                  {
+                                    name: 'title',
+                                    label: 'Title',
+                                    widget: 'string'
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            name: 'activities',
+                            label: 'Activities Page',
+                            widget: 'object',
+                            collapsed: true,
+                            fields: [
+                              {
+                                name: 'gallery',
+                                label: 'Activity Gallery',
+                                widget: 'list',
+                                required: false,
+                                fields: [
+                                  {
+                                    name: 'src',
+                                    label: 'Photo',
+                                    widget: 'select',
+                                    options: [
+                                      { label: 'Sports', value: 'src/imgs/sports.webp' },
+                                      { label: 'Annual Sports', value: 'src/imgs/annualsports.webp' },
+                                      { label: 'Culture', value: 'src/imgs/culture.webp' },
+                                      { label: 'Fair', value: 'src/imgs/fair.webp' },
+                                      { label: 'Scout', value: 'src/imgs/scout.webp' }
+                                    ]
+                                  },
+                                  {
+                                    name: 'alt',
+                                    label: 'Description',
+                                    widget: 'string'
+                                  },
+                                  {
+                                    name: 'title',
+                                    label: 'Activity Name',
+                                    widget: 'string'
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              };
+              
+              window.CMS.init({ config });
+              console.log('CMS initialized successfully with explicit config');
+              
+              if (loadingDiv) {
+                loadingDiv.style.display = 'none';
+              }
+              
             } else {
               console.error('CMS library not loaded');
               if (loadingDiv) {
