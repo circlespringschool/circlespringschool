@@ -7,7 +7,8 @@
     "dev": "npx serve .",
     "build": "echo 'Build completed'",
     "start": "npx serve .",
-    "sanity": "npx @sanity/cli login && npx @sanity/cli init"
+    "sanity": "npx @sanity/cli login && npx @sanity/cli init",
+    "studio": "npx @sanity/cli start"
   },
   "keywords": [
     "education",
@@ -17,6 +18,17 @@
   "author": "Circle Spring Academy",
   "license": "ISC",
   "dependencies": {
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanity": "^3.0.0",
     "serve": "^14.2.3"
+  },
+  "devDependencies": {
+    "@sanity/cli": "^3.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0"
   }
 }
