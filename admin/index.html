@@ -1,13 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Circle Spring Academy Admin</title>
-    <link rel="icon" type="image/x-icon" href="/src/imgs/logo-BBA39KOS.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circle Spring Academy - Admin</title>
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
+    <script>
+      // Embed configuration directly to avoid routing issues
+      window.CMS_MANUAL_INIT = true;
+      
+      const config = {
+        backend: {
+          name: 'github',
+          repo: 'RickMuchira/circlespringschool',
+          branch: 'main',
+          base_url: 'https://circlespringschool-red.vercel.app',
+          auth_endpoint: '/api/auth'
+        },
+        media_folder: 'src/imgs',
+        public_folder: '/src/imgs',
+        site_url: 'https://circlespringschool-red.vercel.app',
+        display_url: 'https://circlespringschool-red.vercel.app',
+        logo_url: '/src/imgs/logo-BBA39KOS.webp',
+        collections: [
+          {
+            name: 'content',
+            label: 'Site Content',
+            files: [
+              {
+                name: 'images',
+                label: 'Images & Media',
+                file: 'content/images.json',
+                format: 'json',
+                fields: [
+                  {
+                    name: 'home',
+                    label: 'Homepage',
+                    widget: 'object',
+                    fields: [
+                      {
+                        name: 'heroIntervalMs',
+                        label: 'Hero Slide Duration (milliseconds)',
+                        widget: 'number',
+                        default: 5000,
+                        min: 2000,
+                        max: 10000,
+                        hint: 'Time between hero image transitions'
+                      },
+                      {
+                        name: 'heroSlides',
+                        label: 'Hero Images',
+                        widget: 'list',
+                        summary: '{{fields.alt}}',
+                        fields: [
+                          {
+                            name: 'src',
+                            label: 'Image Path',
+                            widget: 'select',
+                            options: [
+                              { label: 'Hero Image 1', value: 'src/imgs/hero.webp' },
+                              { label: 'Hero Image 2', value: 'src/imgs/hero2.webp' },
+                              { label: 'Hero Image 3', value: 'src/imgs/hero3.webp' },
+                              { label: 'School Building', value: 'src/imgs/school-building.webp' },
+                              { label: 'Student Life', value: 'src/imgs/studentlife.webp' },
+                              { label: 'Early Years', value: 'src/imgs/early.webp' },
+                              { label: 'Lab', value: 'src/imgs/lab.webp' },
+                              { label: 'Enrichment', value: 'src/imgs/enrichment.webp' },
+                              { label: 'Sports', value: 'src/imgs/sports.webp' },
+                              { label: 'Culture', value: 'src/imgs/culture.webp' }
+                            ]
+                          },
+                          {
+                            name: 'alt',
+                            label: 'Image Description',
+                            widget: 'string',
+                            hint: 'Describe the image for accessibility'
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    name: 'academics',
+                    label: 'Academics Page',
+                    widget: 'object',
+                    collapsed: true,
+                    fields: [
+                      {
+                        name: 'featuredImages',
+                        label: 'Featured Images',
+                        widget: 'list',
+                        required: false,
+                        fields: [
+                          {
+                            name: 'src',
+                            label: 'Image',
+                            widget: 'select',
+                            options: [
+                              { label: 'Lab', value: 'src/imgs/lab.webp' },
+                              { label: 'Early Years', value: 'src/imgs/early.webp' },
+                              { label: 'Enrichment', value: 'src/imgs/enrichment.webp' },
+                              { label: 'School Building', value: 'src/imgs/school-building.webp' }
+                            ]
+                          },
+                          { name: 'alt', label: 'Alt Text', widget: 'string' },
+                          { name: 'title', label: 'Title', widget: 'string' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    name: 'activities',
+                    label: 'Activities Page',
+                    widget: 'object',
+                    collapsed: true,
+                    fields: [
+                      {
+                        name: 'gallery',
+                        label: 'Activity Gallery',
+                        widget: 'list',
+                        required: false,
+                        fields: [
+                          {
+                            name: 'src',
+                            label: 'Photo',
+                            widget: 'select',
+                            options: [
+                              { label: 'Sports', value: 'src/imgs/sports.webp' },
+                              { label: 'Annual Sports', value: 'src/imgs/annualsports.webp' },
+                              { label: 'Culture', value: 'src/imgs/culture.webp' },
+                              { label: 'Fair', value: 'src/imgs/fair.webp' },
+                              { label: 'Scout', value: 'src/imgs/scout.webp' }
+                            ]
+                          },
+                          { name: 'alt', label: 'Description', widget: 'string' },
+                          { name: 'title', label: 'Activity Name', widget: 'string' }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      };
+      
+      // Wait for CMS to be ready and initialize
+      window.addEventListener('DOMContentLoaded', function() {
+        if (window.CMS) {
+          window.CMS.init({ config });
+        }
+      });
+    </script>
   </body>
 </html>
