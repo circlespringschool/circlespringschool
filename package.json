@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx serve .",
     "build": "echo 'Build completed'",
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "sanity": "npx @sanity/cli login && npx @sanity/cli init"
   },
   "keywords": [
     "education",
