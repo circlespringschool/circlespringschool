@@ -11,9 +11,7 @@ export default defineConfig({
   dataset: process.env.SANITY_STUDIO_DATASET || 'production',
 
   plugins: [
-    deskTool({
-      structure: (S) => S.resolve()
-    }),
+    deskTool(),
     visionTool(),
   ],
 

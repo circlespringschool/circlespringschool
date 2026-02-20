@@ -1,0 +1,85 @@
+---
+pageTitle: "Activities - Circle Spring Academy"
+heroSection:
+  title: "Student Activities"
+  subtitle: "Beyond the Classroom"
+  image: src/imgs/sports.webp
+overview:
+  title: "Enrichment Programs"
+  description: "We offer diverse activities that complement our academic programs"
+activityCategories:
+  - title: "Sports & Fitness"
+    description: "Physical development and team building"
+    activities:
+      - "Football"
+      - "Basketball"
+      - "Athletics"
+      - "Swimming"
+    icon: "fa-running"
+    iconColor: "red-500"
+    borderColor: "red-200"
+  - title: "Arts & Culture"
+    description: "Creative expression and cultural appreciation"
+    activities:
+      - "Music"
+      - "Drama"
+      - "Dance"
+      - "Art Club"
+    icon: "fa-palette"
+    iconColor: "blue-500"
+    borderColor: "blue-200"
+  - title: "Academic Clubs"
+    description: "Enhanced learning opportunities"
+    activities:
+      - "Science Club"
+      - "Math Club"
+      - "Debate Society"
+      - "Reading Club"
+    icon: "fa-book-reader"
+    iconColor: "green-500"
+    borderColor: "green-200"
+  - title: "Special Programs"
+    description: "Unique enrichment opportunities"
+    activities:
+      - "Ballet"
+      - "Taekwondo"
+      - "Brass Band"
+      - "Chess Club"
+    icon: "fa-star"
+    iconColor: "yellow-500"
+    borderColor: "yellow-200"
+featuredActivities:
+  - title: "Annual Interclasses Day"
+    description: "Academic competitions, talent shows, and cultural performances"
+    date: "August 22, 2024"
+    image: src/imgs/sports.webp
+  - title: "Grade 2 Graduation"
+    description: "Celebrating our young learners' achievements"
+    date: "October 22, 2025"
+    image: src/imgs/fair.webp
+  - title: "Computer Lab Launch"
+    description: "New modern computer lab with cutting-edge technology"
+    date: "January 18, 2025"
+    image: src/imgs/lab.webp
+benefits:
+  title: "Benefits of Extracurricular Activities"
+  items:
+    - title: "Skill Development"
+      description: "Build new skills and talents"
+      icon: "fa-cogs"
+      iconColor: "blue-500"
+    - title: "Social Skills"
+      description: "Improve communication and teamwork"
+      icon: "fa-users"
+      iconColor: "green-500"
+    - title: "Confidence"
+      description: "Build self-esteem and confidence"
+      icon: "fa-smile"
+      iconColor: "yellow-500"
+    - title: "Balance"
+      description: "Maintain healthy work-life balance"
+      icon: "fa-balance-scale"
+      iconColor: "red-500"
+ctaSection:
+  title: "Join Our Activities"
+  description: "Discover your child's talents and interests"

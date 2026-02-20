@@ -22,7 +22,7 @@ export default {
         {
           name: 'subtitle',
           title: 'Hero Subtitle',
-          type: 'string',
+          type: 'text',
         },
         {
           name: 'image',
@@ -37,53 +37,299 @@ export default {
     {
       name: 'overview',
       title: 'Academics Overview',
-      type: 'blockContent',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Overview Title',
+          type: 'string',
+        },
+        {
+          name: 'description',
+          title: 'Overview Description',
+          type: 'text',
+        },
+      ],
     },
     {
-      name: 'programs',
-      title: 'Academic Programs',
+      name: 'programsOverview',
+      title: 'Programs Overview Cards',
       type: 'array',
       of: [
         {
           type: 'object',
-          name: 'program',
-          title: 'Program',
           fields: [
             {
-              name: 'name',
-              title: 'Program Name',
+              name: 'title',
+              title: 'Program Title',
               type: 'string',
-              validation: (Rule: any) => Rule.required(),
             },
             {
               name: 'description',
               title: 'Program Description',
-              type: 'blockContent',
+              type: 'text',
             },
             {
-              name: 'gradeLevels',
-              title: 'Grade Levels',
+              name: 'features',
+              title: 'Program Features',
               type: 'array',
               of: [{ type: 'string' }],
             },
             {
-              name: 'curriculum',
-              title: 'Curriculum Details',
-              type: 'blockContent',
+              name: 'icon',
+              title: 'Icon Name',
+              type: 'string',
+            },
+            {
+              name: 'iconColor',
+              title: 'Icon Color Class',
+              type: 'string',
             },
           ],
         },
       ],
     },
     {
-      name: 'faculty',
-      title: 'Faculty Information',
-      type: 'blockContent',
+      name: 'curriculumApproach',
+      title: 'Curriculum Approach Section',
+      type: 'object',
+      fields: [
+        {
+          name: 'badge',
+          title: 'Badge Text',
+          type: 'string',
+        },
+        {
+          name: 'title',
+          title: 'Section Title',
+          type: 'string',
+        },
+        {
+          name: 'paragraphs',
+          title: 'Description Paragraphs',
+          type: 'array',
+          of: [{ type: 'text' }],
+        },
+        {
+          name: 'image',
+          title: 'Section Image',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        },
+        {
+          name: 'pillars',
+          title: 'CBC Pillars',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                {
+                  name: 'name',
+                  title: 'Pillar Name',
+                  type: 'string',
+                },
+                {
+                  name: 'icon',
+                  title: 'Icon Name',
+                  type: 'string',
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
     {
-      name: 'achievements',
-      title: 'Academic Achievements',
-      type: 'blockContent',
+      name: 'classPrograms',
+      title: 'Class Programs (Tabs)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'tabId',
+              title: 'Tab ID',
+              type: 'string',
+              description: 'e.g., preschool, lowerprimary, upperprimary',
+            },
+            {
+              name: 'title',
+              title: 'Program Title',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Program Description',
+              type: 'text',
+            },
+            {
+              name: 'focusAreas',
+              title: 'Key Focus Areas',
+              type: 'array',
+              of: [{ type: 'string' }],
+            },
+            {
+              name: 'features',
+              title: 'Program Features',
+              type: 'array',
+              of: [{ type: 'string' }],
+            },
+            {
+              name: 'image',
+              title: 'Program Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              name: 'color',
+              title: 'Color Theme',
+              type: 'string',
+              description: 'e.g., red, blue, green',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'facilities',
+      title: 'Academic Facilities',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Facility Title',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Facility Description',
+              type: 'text',
+            },
+            {
+              name: 'icon',
+              title: 'Icon Name',
+              type: 'string',
+            },
+            {
+              name: 'iconColor',
+              title: 'Icon Color Class',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'admissionProcess',
+      title: 'Admission Process',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Section Title',
+          type: 'string',
+        },
+        {
+          name: 'description',
+          title: 'Section Description',
+          type: 'text',
+        },
+        {
+          name: 'requirements',
+          title: 'Admission Requirements',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                {
+                  name: 'text',
+                  title: 'Requirement Text',
+                  type: 'string',
+                },
+                {
+                  name: 'icon',
+                  title: 'Icon Name',
+                  type: 'string',
+                },
+                {
+                  name: 'color',
+                  title: 'Card Color',
+                  type: 'string',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'calendar',
+          title: 'Academic Calendar',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                {
+                  name: 'term',
+                  title: 'Term Name',
+                  type: 'string',
+                },
+                {
+                  name: 'period',
+                  title: 'Period',
+                  type: 'string',
+                },
+                {
+                  name: 'deadline',
+                  title: 'Application Deadline',
+                  type: 'string',
+                },
+                {
+                  name: 'color',
+                  title: 'Card Color',
+                  type: 'string',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'steps',
+          title: 'Process Steps',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                {
+                  name: 'number',
+                  title: 'Step Number',
+                  type: 'number',
+                },
+                {
+                  name: 'title',
+                  title: 'Step Title',
+                  type: 'string',
+                },
+                {
+                  name: 'description',
+                  title: 'Step Description',
+                  type: 'text',
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
   ],
 };

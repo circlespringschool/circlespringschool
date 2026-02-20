@@ -3,6 +3,7 @@ import about from './about';
 import academics from './academics';
 import activities from './activities';
 import contact from './contact';
+import studentLife from './studentLife';
 import blockContent from './blockContentType';
 
 export const schemaTypes = [
@@ -11,5 +12,6 @@ export const schemaTypes = [
   academics,
   activities,
   contact,
+  studentLife,
   blockContent
 ];
