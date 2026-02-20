@@ -22,7 +22,7 @@ export default {
         {
           name: 'subtitle',
           title: 'Hero Subtitle',
-          type: 'string',
+          type: 'text',
         },
         {
           name: 'image',
@@ -37,71 +37,156 @@ export default {
     {
       name: 'overview',
       title: 'Activities Overview',
-      type: 'blockContent',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Overview Title',
+          type: 'string',
+        },
+        {
+          name: 'description',
+          title: 'Overview Description',
+          type: 'text',
+        },
+      ],
     },
     {
-      name: 'categories',
+      name: 'activityCategories',
       title: 'Activity Categories',
       type: 'array',
       of: [
         {
           type: 'object',
-          name: 'category',
-          title: 'Category',
           fields: [
             {
-              name: 'name',
-              title: 'Category Name',
+              name: 'title',
+              title: 'Category Title',
               type: 'string',
-              validation: (Rule: any) => Rule.required(),
             },
             {
               name: 'description',
               title: 'Category Description',
-              type: 'blockContent',
+              type: 'text',
             },
             {
               name: 'activities',
-              title: 'Activities in Category',
+              title: 'Activities List',
               type: 'array',
-              of: [
+              of: [{ type: 'string' }],
+            },
+            {
+              name: 'icon',
+              title: 'Icon Name',
+              type: 'string',
+            },
+            {
+              name: 'iconColor',
+              title: 'Icon Color Class',
+              type: 'string',
+            },
+            {
+              name: 'borderColor',
+              title: 'Border Color Class',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'featuredActivities',
+      title: 'Featured Activities',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Activity Title',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Activity Description',
+              type: 'text',
+            },
+            {
+              name: 'date',
+              title: 'Date/Time',
+              type: 'string',
+            },
+            {
+              name: 'image',
+              title: 'Activity Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'benefits',
+      title: 'Benefits Section',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Section Title',
+          type: 'string',
+        },
+        {
+          name: 'items',
+          title: 'Benefit Items',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
                 {
-                  type: 'object',
-                  name: 'activity',
-                  title: 'Activity',
-                  fields: [
-                    {
-                      name: 'name',
-                      title: 'Activity Name',
-                      type: 'string',
-                      validation: (Rule: any) => Rule.required(),
-                    },
-                    {
-                      name: 'description',
-                      title: 'Activity Description',
-                      type: 'blockContent',
-                    },
-                    {
-                      name: 'schedule',
-                      title: 'Schedule',
-                      type: 'string',
-                    },
-                    {
-                      name: 'instructor',
-                      title: 'Instructor',
-                      type: 'string',
-                    },
-                    {
-                      name: 'images',
-                      title: 'Activity Images',
-                      type: 'array',
-                      of: [{ type: 'image' }],
-                    },
-                  ],
+                  name: 'title',
+                  title: 'Benefit Title',
+                  type: 'string',
+                },
+                {
+                  name: 'description',
+                  title: 'Benefit Description',
+                  type: 'text',
+                },
+                {
+                  name: 'icon',
+                  title: 'Icon Name',
+                  type: 'string',
+                },
+                {
+                  name: 'iconColor',
+                  title: 'Icon Color Class',
+                  type: 'string',
                 },
               ],
             },
           ],
+        },
+      ],
+    },
+    {
+      name: 'ctaSection',
+      title: 'Call to Action Section',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'CTA Title',
+          type: 'string',
+        },
+        {
+          name: 'description',
+          title: 'CTA Description',
+          type: 'text',
         },
       ],
     },

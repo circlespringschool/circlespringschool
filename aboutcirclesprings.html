@@ -302,9 +302,9 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-20 hero-gradient text-white">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                 x-text="language === 'en' ? 'About Circle Spring Academy' : 'Kuhusu Circle Spring Academy'"></h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto"
+            <p id="hero-subtitle" class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto"
                 x-text="language === 'en' ? 'Nurturing young minds for a brighter future through quality education and holistic development with 5+ years of excellence.' : 'Kulea akili za vijana kwa mustakabali mwanga kupitia elimu bora na maendeleo ya jumla kwa zaidi ya miaka 5 ya ubora.'">
             </p>
             <a href="#our-story"
@@ -324,13 +324,13 @@
                         x-text="language === 'en' ? 'Our Story' : 'Hadithi Yetu'"></h2>
 
                     <div class="space-y-6">
-                        <p class="text-lg text-gray-700 leading-relaxed"
+                        <p id="story-para1" class="text-lg text-gray-700 leading-relaxed"
                             x-text="language === 'en' ? 'Founded in 2020, Circle Spring Academy began as an educational initiative in Salama Estate, Thika, with a vision to provide quality education that nurtures both academic excellence and character development.' : 'Ilianzishwa mwaka 2020, Circle Spring Academy ilianza kama mpango wa kielimu katika eneo la Salama Estate, Thika, kwa ndoto ya kutoa elimu bora ambayo inalea ubora wa kitaaluma na maendeleo ya tabia.'">
                         </p>
-                        <p class="text-lg text-gray-700 leading-relaxed"
+                        <p id="story-para2" class="text-lg text-gray-700 leading-relaxed"
                             x-text="language === 'en' ? 'In just 5+ years, we have grown into a respected educational institution, known for our commitment to holistic development and our innovative approach to the Competency-Based Curriculum (CBC).' : 'Katika miaka 5+ tu, tumekua kuwa taasisi ya kielimu yenye heshima, inayojulikana kwa kujitolea kwetu kwa maendeleo ya jumla na mbinu yetu ya uvumbuzi kwa Mtaala wa Msingi wa Uwezo (CBC).'">
                         </p>
-                        <p class="text-lg text-gray-700 leading-relaxed"
+                        <p id="story-para3" class="text-lg text-gray-700 leading-relaxed"
                             x-text="language === 'en' ? 'Today, we continue to build on our legacy of excellence, preparing students not just for academic success, but for life-long learning and responsible citizenship.' : 'Leo, tunaendelea kujenga juu ya urithi wetu wa ubora, tukiwaandaa wanafunzi si tu kwa mafanikio ya kitaaluma, bali kwa kujifunza maisha yote na uraia wenye wajibikaji.'">
                         </p>
                     </div>

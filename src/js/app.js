@@ -1,4 +1,58 @@
 // app.js - Centralized JavaScript for Circle Spring Academy
+// Updated to use Decap CMS (static file-based content)
+
+// Simple YAML frontmatter parser
+function parseFrontmatter(content) {
+  const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+  const match = content.match(frontmatterRegex);
+  
+  if (!match) {
+    return { data: {}, content: content };
+  }
+  
+  const yamlContent = match[1];
+  const markdownContent = match[2];
+  
+  // Simple YAML parser (basic implementation)
+  const data = {};
+  yamlContent.split('\n').forEach(line => {
+    const colonIndex = line.indexOf(':');
+    if (colonIndex > 0) {
+      const key = line.substring(0, colonIndex).trim();
+      let value = line.substring(colonIndex + 1).trim();
+      
+      // Remove quotes if present
+      if ((value.startsWith('"') && value.endsWith('"')) || 
+          (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1);
+      }
+      
+      // Handle arrays (basic)
+      if (value.startsWith('[') && value.endsWith(']')) {
+        value = value.slice(1, -1).split(',').map(v => v.trim().replace(/^["']|["']$/g, ''));
+      }
+      
+      data[key] = value;
+    }
+  });
+  
+  return { data, content: markdownContent };
+}
+
+// Fetch and parse content file
+async function fetchContent(type) {
+  try {
+    const response = await fetch(`/content/${type}/index.md`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${type} content`);
+    }
+    const text = await response.text();
+    return parseFrontmatter(text);
+  } catch (error) {
+    console.error(`Error loading ${type} content:`, error);
+    return null;
+  }
+}
 
 // Initialize Alpine.js store
 document.addEventListener('alpine:init', () => {
@@ -22,46 +76,46 @@ document.addEventListener('alpine:init', () => {
         interval: null,
         
         init() {
-            // Load carousel config from JSON (admin-editable on Netlify CMS).
-            // If it fails, we keep the hard-coded defaults above.
+            // Load carousel config from Sanity.
             this.loadConfig();
+            this.loadText();
             this.start();
         },
 
         async loadConfig() {
             try {
-                const response = await fetch('content/images.json', { cache: 'no-store' });
-                if (!response.ok) return;
-
-                const content = await response.json();
-                const home = content?.home;
-
-                if (home?.heroIntervalMs && Number.isFinite(home.heroIntervalMs)) {
-                    this.heroIntervalMs = home.heroIntervalMs;
+                const bannerData = await fetchContent('banner');
+                if (bannerData?.data?.images && Array.isArray(bannerData.data.images)) {
+                    this.slides = bannerData.data.images.map(img => ({
+                        src: img.image || img.src || '',
+                        alt: img.alt || 'Banner image'
+                    }));
+                    this.totalSlides = this.slides.length;
+                    if (this.activeSlide >= this.totalSlides) {
+                        this.activeSlide = 0;
+                    }
+                    this.start(true);
                 }
+            } catch (error) {
+                console.error('Failed to load banner config:', error);
+            }
+        },
 
-                if (Array.isArray(home?.heroSlides) && home.heroSlides.length > 0) {
-                    const sanitizedSlides = home.heroSlides
-                        .filter(s => s && typeof s.src === 'string' && s.src.trim().length > 0)
-                        .map(s => ({
-                            src: s.src.trim(),
-                            alt: typeof s.alt === 'string' ? s.alt.trim() : ''
-                        }));
-
-                    if (sanitizedSlides.length > 0) {
-                        this.slides = sanitizedSlides;
+        async loadText() {
+            try {
+                const bannerData = await fetchContent('banner');
+                if (bannerData?.data) {
+                    const titleEl = document.getElementById('hero-title');
+                    const subtitleEl = document.getElementById('hero-subtitle');
+                    if (titleEl && bannerData.data.title) {
+                        titleEl.textContent = bannerData.data.title;
+                    }
+                    if (subtitleEl && bannerData.data.subtitle) {
+                        subtitleEl.textContent = bannerData.data.subtitle;
                     }
                 }
-
-                this.totalSlides = this.slides.length;
-                if (this.activeSlide >= this.totalSlides) {
-                    this.activeSlide = 0;
-                }
-
-                // Restart interval so updated timing/slide count applies.
-                this.start(true);
-            } catch {
-                // Ignore config load failures; defaults remain.
+            } catch (error) {
+                console.error('Failed to load banner text:', error);
             }
         },
 
@@ -103,6 +157,121 @@ document.addEventListener('alpine:init', () => {
         openCategory: null,
         openFaq: null
     }));
+
+    // Page content loaders
+    const loadAboutContent = async () => {
+        try {
+            const aboutData = await fetchContent('about');
+            if (aboutData?.data) {
+                const data = aboutData.data;
+                if (data.heroSection) {
+                    const titleEl = document.getElementById('hero-title');
+                    const subtitleEl = document.getElementById('hero-subtitle');
+                    if (titleEl && data.heroSection.title) {
+                        titleEl.textContent = data.heroSection.title;
+                    }
+                    if (subtitleEl && data.heroSection.subtitle) {
+                        subtitleEl.textContent = data.heroSection.subtitle;
+                    }
+                }
+                // Load story paragraphs
+                if (data.storySection?.paragraphs && Array.isArray(data.storySection.paragraphs)) {
+                    const paras = data.storySection.paragraphs;
+                    if (paras[0] && document.getElementById('story-para1')) {
+                        document.getElementById('story-para1').textContent = paras[0];
+                    }
+                    if (paras[1] && document.getElementById('story-para2')) {
+                        document.getElementById('story-para2').textContent = paras[1];
+                    }
+                    if (paras[2] && document.getElementById('story-para3')) {
+                        document.getElementById('story-para3').textContent = paras[2];
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Failed to load about content:', error);
+        }
+    };
+
+    const loadAcademicsContent = async () => {
+        try {
+            const academicsData = await fetchContent('academics');
+            if (academicsData?.data) {
+                const data = academicsData.data;
+                if (data.heroSection) {
+                    const titleEl = document.getElementById('hero-title');
+                    const subtitleEl = document.getElementById('hero-subtitle');
+                    if (titleEl && data.heroSection.title) {
+                        titleEl.textContent = data.heroSection.title;
+                    }
+                    if (subtitleEl && data.heroSection.subtitle) {
+                        subtitleEl.textContent = data.heroSection.subtitle;
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Failed to load academics content:', error);
+        }
+    };
+
+    const loadActivitiesContent = async () => {
+        try {
+            const activitiesData = await fetchContent('activities');
+            if (activitiesData?.data) {
+                const data = activitiesData.data;
+                if (data.heroSection) {
+                    const titleEl = document.getElementById('hero-title');
+                    const subtitleEl = document.getElementById('hero-subtitle');
+                    if (titleEl && data.heroSection.title) {
+                        titleEl.textContent = data.heroSection.title;
+                    }
+                    if (subtitleEl && data.heroSection.subtitle) {
+                        subtitleEl.textContent = data.heroSection.subtitle;
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Failed to load activities content:', error);
+        }
+    };
+
+    const loadContactContent = async () => {
+        try {
+            const contactData = await fetchContent('contact');
+            if (contactData?.data) {
+                const data = contactData.data;
+                if (data.heroSection) {
+                    const titleEl = document.getElementById('hero-title');
+                    const subtitleEl = document.getElementById('hero-subtitle');
+                    if (titleEl && data.heroSection.title) {
+                        titleEl.textContent = data.heroSection.title;
+                    }
+                    if (subtitleEl && data.heroSection.subtitle) {
+                        subtitleEl.textContent = data.heroSection.subtitle;
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Failed to load contact content:', error);
+        }
+    };
+
+    // Load page content from static files
+    const loadPageContent = async () => {
+        const path = window.location.pathname;
+        if (path.includes('about')) {
+            await loadAboutContent();
+        } else if (path.includes('academics')) {
+            await loadAcademicsContent();
+        } else if (path.includes('activities')) {
+            await loadActivitiesContent();
+        } else if (path.includes('contact')) {
+            await loadContactContent();
+        }
+        // Add more as needed
+    };
+
+    loadPageContent();
 });
 
 // Common initialization when DOM is fully loaded

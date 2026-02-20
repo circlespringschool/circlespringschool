@@ -1,0 +1,263 @@
+backend:
+  name: github
+  repo: RickMuchira/circlespringschool
+  branch: main
+  base_url: https://circlespringschool-red.vercel.app
+  auth_endpoint: api/auth
+
+media_folder: "src/imgs" # Folder where uploaded images will be stored
+public_folder: "/src/imgs" # Public path for images in the frontend
+
+collections:
+  - name: "banner"
+    label: "Homepage Banner"
+    folder: "content/banner"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "text" }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt Text", name: "alt", widget: "string" }
+
+  - name: "about"
+    label: "About Page"
+    folder: "content/about"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page Title", name: "pageTitle", widget: "string", required: true }
+      - label: "Hero Section"
+        name: "heroSection"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+      - label: "Story Section"
+        name: "storySection"
+        widget: "object"
+        fields:
+          - { label: "Badge", name: "badge", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Paragraphs"
+            name: "paragraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+      - label: "Statistics"
+        name: "stats"
+        widget: "list"
+        fields:
+          - { label: "Value", name: "value", widget: "string" }
+          - { label: "Label", name: "label", widget: "string" }
+      - { label: "Mission Statement", name: "missionStatement", widget: "markdown" }
+      - { label: "Vision Statement", name: "visionStatement", widget: "markdown" }
+      - label: "Core Values"
+        name: "values"
+        widget: "list"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Icon", name: "icon", widget: "string" }
+          - { label: "Icon Color", name: "iconColor", widget: "string" }
+      - label: "CTA Section"
+        name: "ctaSection"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+
+  - name: "academics"
+    label: "Academics Page"
+    folder: "content/academics"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page Title", name: "pageTitle", widget: "string", required: true }
+      - label: "Hero Section"
+        name: "heroSection"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+      - label: "Overview"
+        name: "overview"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+      - label: "Programs Overview"
+        name: "programsOverview"
+        widget: "list"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - { label: "Icon", name: "icon", widget: "string" }
+          - { label: "Icon Color", name: "iconColor", widget: "string" }
+      - label: "Curriculum Approach"
+        name: "curriculumApproach"
+        widget: "object"
+        fields:
+          - { label: "Badge", name: "badge", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Paragraphs"
+            name: "paragraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+          - label: "CBC Pillars"
+            name: "pillars"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Icon", name: "icon", widget: "string" }
+      - label: "Class Programs"
+        name: "classPrograms"
+        widget: "list"
+        fields:
+          - { label: "Tab ID", name: "tabId", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Focus Areas"
+            name: "focusAreas"
+            widget: "list"
+            field: { label: "Area", name: "area", widget: "string" }
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Color", name: "color", widget: "string" }
+      - label: "Facilities"
+        name: "facilities"
+        widget: "list"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Icon", name: "icon", widget: "string" }
+          - { label: "Icon Color", name: "iconColor", widget: "string" }
+      - label: "Admission Process"
+        name: "admissionProcess"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Requirements"
+            name: "requirements"
+            widget: "list"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Icon", name: "icon", widget: "string" }
+              - { label: "Color", name: "color", widget: "string" }
+          - label: "Academic Calendar"
+            name: "calendar"
+            widget: "list"
+            fields:
+              - { label: "Term", name: "term", widget: "string" }
+              - { label: "Period", name: "period", widget: "string" }
+              - { label: "Deadline", name: "deadline", widget: "string" }
+              - { label: "Color", name: "color", widget: "string" }
+          - label: "Process Steps"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "number" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  - name: "activities"
+    label: "Activities Page"
+    folder: "content/activities"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page Title", name: "pageTitle", widget: "string", required: true }
+      - label: "Hero Section"
+        name: "heroSection"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+      - label: "Overview"
+        name: "overview"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+      - label: "Activity Categories"
+        name: "activityCategories"
+        widget: "list"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Activities"
+            name: "activities"
+            widget: "list"
+            field: { label: "Activity", name: "activity", widget: "string" }
+          - { label: "Icon", name: "icon", widget: "string" }
+          - { label: "Icon Color", name: "iconColor", widget: "string" }
+          - { label: "Border Color", name: "borderColor", widget: "string" }
+      - label: "Featured Activities"
+        name: "featuredActivities"
+        widget: "list"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Date/Time", name: "date", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+      - label: "Benefits Section"
+        name: "benefits"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Benefit Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Icon", name: "icon", widget: "string" }
+              - { label: "Icon Color", name: "iconColor", widget: "string" }
+      - label: "CTA Section"
+        name: "ctaSection"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+
+  - name: "contact"
+    label: "Contact Page"
+    folder: "content/contact"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page Title", name: "pageTitle", widget: "string", required: true }
+      - label: "Hero Section"
+        name: "heroSection"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+      - label: "Contact Information"
+        name: "contactInformation"
+        widget: "object"
+        fields:
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Office Hours", name: "officeHours", widget: "string" }
+      - { label: "Enquiry Form Text", name: "enquiryFormText", widget: "markdown" }
+      - { label: "Map Embed Code", name: "mapEmbedCode", widget: "text" }
