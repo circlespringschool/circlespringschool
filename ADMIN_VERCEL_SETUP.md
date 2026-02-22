@@ -12,8 +12,8 @@
 2. **OAuth Apps** → **New OAuth App**  
 3. Set:
    - **Application name:** Circle Spring School Admin  
-   - **Homepage URL:** `https://circlespringschool-red.vercel.app`  
-   - **Authorization callback URL:** `https://circlespringschool-red.vercel.app/api/auth/complete`  
+   - **Homepage URL:** `https://circlespringschool.vercel.app`  
+   - **Authorization callback URL:** `https://circlespringschool.vercel.app/api/auth/complete`  
 4. Click **Register application**  
 5. Copy the **Client ID** and generate a **Client secret**
 
@@ -25,12 +25,12 @@
 
 | Name | Value |
 |------|-------|
-| `ORIGIN` | `https://circlespringschool-red.vercel.app` |
-| `COMPLETE_URL` | `https://circlespringschool-red.vercel.app/api/auth/complete` |
+| `ORIGIN` | `https://circlespringschool.vercel.app` |
+| `COMPLETE_URL` | `https://circlespringschool.vercel.app/api/auth/complete` |
 | `OAUTH_CLIENT_ID` | *your GitHub OAuth Client ID* |
 | `OAUTH_CLIENT_SECRET` | *your GitHub OAuth Client secret* |
 
-4. Optionally add `ADMIN_PANEL_URL` = `https://circlespringschool-red.vercel.app/admin/` for error redirects.
+4. Optionally add `ADMIN_PANEL_URL` = `https://circlespringschool.vercel.app/admin/` for error redirects.
 
 ### 3. Install dependencies and deploy
 
@@ -41,7 +41,7 @@ vercel --prod
 
 ## Accessing the admin
 
-1. Visit: https://circlespringschool-red.vercel.app/admin/  
+1. Visit: https://circlespringschool.vercel.app/admin/  
 2. Click **Login with GitHub**  
 3. Approve access in the GitHub OAuth flow  
 4. You’ll be redirected back to the admin panel to edit content.

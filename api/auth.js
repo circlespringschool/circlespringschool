@@ -113,7 +113,7 @@ export default async function handler(req, res) {
   
   const baseUrl = req.headers.host?.includes('localhost') 
     ? `http://${req.headers.host}`
-    : 'https://circlespringschool-red.vercel.app';
+    : 'https://circlespringschool.vercel.app';
     
   const redirectUri = `${baseUrl}/api/auth`;
   const scope = 'repo,user,read:org';

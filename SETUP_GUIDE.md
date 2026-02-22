@@ -40,8 +40,8 @@ vercel
 2. Click **"New OAuth App"**
 3. Fill in:
    - **Application name**: `Circle Spring CMS`
-   - **Homepage URL**: `https://circlespringschool-red.vercel.app`
-   - **Authorization callback URL**: `https://circlespringschool-red.vercel.app/api/auth`
+   - **Homepage URL**: `https://circlespringschool.vercel.app`
+   - **Authorization callback URL**: `https://circlespringschool.vercel.app/api/auth`
 4. Click **"Register application"**
 5. Copy the **Client ID** and generate a **Client Secret**
 
@@ -56,7 +56,7 @@ vercel
 
 ## ✅ Step 4: Access CMS
 
-1. Visit: `https://circlespringschool-red.vercel.app/admin`
+1. Visit: `https://circlespringschool.vercel.app/admin`
 2. Click **"Login with GitHub"**
 3. Authorize the application
 4. Start editing content!
