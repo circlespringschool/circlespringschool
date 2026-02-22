@@ -5,6 +5,8 @@
   "main": "index.html",
   "scripts": {
     "dev": "npx serve . -p 3000",
+    "dev:cms": "npx decap-server",
+    "dev:all": "concurrently \"npm run dev\" \"npx decap-server\"",
     "build": "echo 'Build completed'",
     "start": "npx serve . -p 3000",
     "test": "npx serve . -p 3000"

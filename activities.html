@@ -277,9 +277,9 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-20 hero-gradient text-white">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                 x-text="language === 'en' ? 'Student Activities & Programs' : 'Shughuli za Wanafunzi'"></h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto"
+            <p id="hero-subtitle" class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto"
                 x-text="language === 'en' ? 'At Circle Spring Academy, we believe in nurturing well-rounded individuals through diverse extracurricular activities that complement academic learning.' : 'Katika Circle Spring Academy, tunaamini katika kulea watu wenye ujuzi mwingi kupitia shughuli mbalimbali za ziada zinazokamilisha kujifunza kitaaluma.'">
             </p>
             <a href="#activities-overview"
@@ -603,6 +603,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     <!-- Custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script src="src/js/app.js"></script>
 </body>
 

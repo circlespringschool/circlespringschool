@@ -111,9 +111,9 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'OAuth client ID not configured' });
   }
   
-  const baseUrl = req.headers.host?.includes('localhost') 
-    ? `http://${req.headers.host}`
-    : 'https://circlespringschool.vercel.app';
+  const host = req.headers['x-forwarded-host'] || req.headers.host || 'circlespringschool.vercel.app';
+  const protocol = host.includes('localhost') ? 'http' : 'https';
+  const baseUrl = `${protocol}://${host}`;
     
   const redirectUri = `${baseUrl}/api/auth`;
   const scope = 'repo,user,read:org';

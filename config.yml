@@ -5,6 +5,8 @@ backend:
   base_url: https://circlespringschool.vercel.app
   auth_endpoint: api/auth
 
+local_backend: true
+
 media_folder: "src/imgs" # Folder where uploaded images will be stored
 public_folder: "/src/imgs" # Public path for images in the frontend
 

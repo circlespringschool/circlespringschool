@@ -299,9 +299,9 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-20 bg-white ">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-deep-carmine"
+            <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-deep-carmine"
                 x-text="language === 'en' ? 'Contact Us' : 'Wasiliana Nasi'"></h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-charcoal"
+            <p id="hero-subtitle" class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-charcoal"
                 x-text="language === 'en' ? 'We are here to answer any questions you may have about Circle Spring Academy in Salama Estate, Thika.' : 'Tupo hapa kujibu maswali yoyote unayoweza kuwa nayo kuhusu Circle Spring Academy katika eneo la Salama Estate, Thika.'">
             </p>
         </div>
@@ -445,7 +445,7 @@
                             <p class="text-charcoal mb-2"
                                 x-text="language === 'en' ? 'Send us an email and we will respond as soon as possible:' : 'Tutumie barua pepe na tutajibu haraka iwezekanavyo:'">
                             </p>
-                            <a href="mailto:circlespringschool@gmail.com?subject=Inquiry%20from%20Website"
+                            <a id="contact-email-link" href="mailto:circlespringschool@gmail.com?subject=Inquiry%20from%20Website"
                                 class="text-deep-carmine font-medium hover:underline">circlespringschool@gmail.com</a>
                         </div>
 
@@ -461,8 +461,7 @@
                             <p class="text-charcoal mb-2"
                                 x-text="language === 'en' ? 'Call us during school hours for immediate assistance:' : 'Tupigie simu wakati wa masaa ya shule kwa usaidizi wa haraka:'">
                             </p>
-                            <a href="tel:+2540111427110" class="text-deep-carmine font-medium hover:underline">+254 0111
-                                427 110</a>
+                            <a id="contact-phone-link" href="tel:+2540111427110" class="text-deep-carmine font-medium hover:underline">+254 0111 427 110</a>
                         </div>
 
                         <!-- Location Card -->
@@ -477,7 +476,7 @@
                             <p class="text-charcoal mb-2"
                                 x-text="language === 'en' ? 'Come visit our campus in Salama Estate, Thika:' : 'Kuja utembelee chuo chetu katika eneo la Salama Estate, Thika:'">
                             </p>
-                            <p class="text-charcoal font-medium">Salama Estate, Thika, Kenya</p>
+                            <p id="contact-address" class="text-charcoal font-medium">Salama Estate, Thika, Kenya</p>
                         </div>
                     </div>
 
@@ -489,7 +488,7 @@
                             <div class="flex justify-between">
                                 <span class="text-charcoal"
                                     x-text="language === 'en' ? 'Monday - Friday' : 'Jumatatu - Ijumaa'"></span>
-                                <span class="text-charcoal font-medium">8:00 AM - 4:00 PM</span>
+                                <span id="contact-office-hours" class="text-charcoal font-medium">8:00 AM - 4:00 PM</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-charcoal" x-text="language === 'en' ? 'Saturday' : 'Jumamosi'"></span>
@@ -863,6 +862,7 @@ Ujumbe huu ulitumwa kupitia fomu ya mawasiliano ya tovuti ya Circle Spring Acade
         });
     </script>
     <!-- Custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script src="src/js/app.js"></script>
 </body>
 

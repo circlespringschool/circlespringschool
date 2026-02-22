@@ -1,7 +1,7 @@
 // app.js - Centralized JavaScript for Circle Spring Academy
 // Updated to use Decap CMS (static file-based content)
 
-// Simple YAML frontmatter parser
+// YAML frontmatter parser (uses js-yaml when available for nested structures)
 function parseFrontmatter(content) {
   const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
   const match = content.match(frontmatterRegex);
@@ -12,37 +12,37 @@ function parseFrontmatter(content) {
   
   const yamlContent = match[1];
   const markdownContent = match[2];
+  let data = {};
   
-  // Simple YAML parser (basic implementation)
-  const data = {};
-  yamlContent.split('\n').forEach(line => {
-    const colonIndex = line.indexOf(':');
-    if (colonIndex > 0) {
-      const key = line.substring(0, colonIndex).trim();
-      let value = line.substring(colonIndex + 1).trim();
-      
-      // Remove quotes if present
-      if ((value.startsWith('"') && value.endsWith('"')) || 
-          (value.startsWith("'") && value.endsWith("'"))) {
-        value = value.slice(1, -1);
-      }
-      
-      // Handle arrays (basic)
-      if (value.startsWith('[') && value.endsWith(']')) {
-        value = value.slice(1, -1).split(',').map(v => v.trim().replace(/^["']|["']$/g, ''));
-      }
-      
-      data[key] = value;
+  try {
+    const yamlLib = typeof jsyaml !== 'undefined' ? jsyaml : (typeof yaml !== 'undefined' ? yaml : null);
+    if (yamlLib && yamlLib.load) {
+      data = yamlLib.load(yamlContent) || {};
+    } else {
+      // Fallback: simple parser for flat YAML only
+      yamlContent.split('\n').forEach(line => {
+        const colonIndex = line.indexOf(':');
+        if (colonIndex > 0 && !line.match(/^\s/)) {
+          const key = line.substring(0, colonIndex).trim();
+          let value = line.substring(colonIndex + 1).trim();
+          if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+            value = value.slice(1, -1);
+          }
+          data[key] = value;
+        }
+      });
     }
-  });
+  } catch (e) {
+    console.warn('YAML parse warning:', e);
+  }
   
   return { data, content: markdownContent };
 }
 
-// Fetch and parse content file
+// Fetch and parse content file (no cache so CMS edits appear immediately)
 async function fetchContent(type) {
   try {
-    const response = await fetch(`/content/${type}/index.md`);
+    const response = await fetch(`/content/${type}/index.md`, { cache: 'no-store' });
     if (!response.ok) {
       throw new Error(`Failed to fetch ${type} content`);
     }
@@ -167,26 +167,35 @@ document.addEventListener('alpine:init', () => {
                 if (data.heroSection) {
                     const titleEl = document.getElementById('hero-title');
                     const subtitleEl = document.getElementById('hero-subtitle');
-                    if (titleEl && data.heroSection.title) {
-                        titleEl.textContent = data.heroSection.title;
-                    }
-                    if (subtitleEl && data.heroSection.subtitle) {
-                        subtitleEl.textContent = data.heroSection.subtitle;
-                    }
+                    if (titleEl && data.heroSection.title) titleEl.textContent = data.heroSection.title;
+                    if (subtitleEl && data.heroSection.subtitle) subtitleEl.textContent = data.heroSection.subtitle;
                 }
-                // Load story paragraphs
-                if (data.storySection?.paragraphs && Array.isArray(data.storySection.paragraphs)) {
+                if (data.storySection) {
                     const paras = data.storySection.paragraphs;
-                    if (paras[0] && document.getElementById('story-para1')) {
-                        document.getElementById('story-para1').textContent = paras[0];
+                    if (Array.isArray(paras)) {
+                        [1, 2, 3].forEach((i, idx) => {
+                            const el = document.getElementById(`story-para${i}`);
+                            if (el && paras[idx]) el.textContent = paras[idx];
+                        });
                     }
-                    if (paras[1] && document.getElementById('story-para2')) {
-                        document.getElementById('story-para2').textContent = paras[1];
-                    }
-                    if (paras[2] && document.getElementById('story-para3')) {
-                        document.getElementById('story-para3').textContent = paras[2];
+                    const imgEl = document.getElementById('story-image');
+                    if (imgEl && data.storySection.image) {
+                        imgEl.src = data.storySection.image;
+                        if (data.storySection.title) imgEl.alt = data.storySection.title;
                     }
                 }
+                if (data.stats && Array.isArray(data.stats)) {
+                    data.stats.forEach((stat, i) => {
+                        const valEl = document.getElementById(`stat-${i}-value`);
+                        const lblEl = document.getElementById(`stat-${i}-label`);
+                        if (valEl && stat.value) valEl.textContent = stat.value;
+                        if (lblEl && stat.label) lblEl.textContent = stat.label;
+                    });
+                }
+                const missionEl = document.getElementById('mission-statement');
+                if (missionEl && data.missionStatement) missionEl.textContent = data.missionStatement;
+                const visionEl = document.getElementById('vision-statement');
+                if (visionEl && data.visionStatement) visionEl.textContent = data.visionStatement;
             }
         } catch (error) {
             console.error('Failed to load about content:', error);
@@ -243,12 +252,25 @@ document.addEventListener('alpine:init', () => {
                 if (data.heroSection) {
                     const titleEl = document.getElementById('hero-title');
                     const subtitleEl = document.getElementById('hero-subtitle');
-                    if (titleEl && data.heroSection.title) {
-                        titleEl.textContent = data.heroSection.title;
+                    if (titleEl && data.heroSection.title) titleEl.textContent = data.heroSection.title;
+                    if (subtitleEl && data.heroSection.subtitle) subtitleEl.textContent = data.heroSection.subtitle;
+                }
+                if (data.contactInformation) {
+                    const ci = data.contactInformation;
+                    const emailLink = document.getElementById('contact-email-link');
+                    if (emailLink && ci.email) {
+                        emailLink.href = `mailto:${ci.email}?subject=Inquiry%20from%20Website`;
+                        emailLink.textContent = ci.email;
                     }
-                    if (subtitleEl && data.heroSection.subtitle) {
-                        subtitleEl.textContent = data.heroSection.subtitle;
+                    const phoneLink = document.getElementById('contact-phone-link');
+                    if (phoneLink && ci.phone) {
+                        phoneLink.href = `tel:${ci.phone.replace(/\s/g, '')}`;
+                        phoneLink.textContent = ci.phone;
                     }
+                    const addrEl = document.getElementById('contact-address');
+                    if (addrEl && ci.address) addrEl.textContent = ci.address;
+                    const hoursEl = document.getElementById('contact-office-hours');
+                    if (hoursEl && ci.officeHours) hoursEl.textContent = ci.officeHours;
                 }
             }
         } catch (error) {
