@@ -1,7 +1,7 @@
 ---
 title: Shaping Future Leaders Through Excellence
 subtitle: Circle Spring School in Salama Estate, Thika provides a nurturing
-  environment that inspires young minds to achieve their full potentia.
+  environment that inspires young minds to achieve their full potential.
 description: Quality education with holistic development
 images:
   - image: src/imgs/hero.webp
