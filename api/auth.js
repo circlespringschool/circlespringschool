@@ -42,9 +42,9 @@ export default async function handler(req, res) {
         throw new Error('No access token received from GitHub');
       }
 
-      // Decap CMS uses a popup and expects this exact postMessage format
+      // Decap CMS popup flow expects a handshake then a success postMessage
       const token = tokenData.access_token;
-      const msg = 'authorization:github:success:' + JSON.stringify({ token: token, provider: 'github' });
+      const successMsg = 'authorization:github:success:' + JSON.stringify({ token, provider: 'github' });
       const html = `
         <!DOCTYPE html>
         <html>
@@ -63,13 +63,37 @@ export default async function handler(req, res) {
             </div>
             <script>
               (function() {
-                var msg = ${JSON.stringify(msg)};
-                if (window.opener) {
-                  window.opener.postMessage(msg, window.location.origin);
-                  window.close();
-                } else {
+                var successMsg = ${JSON.stringify(successMsg)};
+                var provider = 'github';
+
+                if (!window.opener) {
                   document.body.innerHTML = '<div class="container"><p>Pop-up was blocked. Please allow pop-ups for this site and try again.</p></div>';
+                  return;
                 }
+
+                var sent = false;
+
+                function sendSuccess(origin) {
+                  if (sent) return;
+                  sent = true;
+                  window.opener.postMessage(successMsg, origin || '*');
+                  setTimeout(function () { window.close(); }, 100);
+                }
+
+                function receiveMessage(e) {
+                  // Expect handshake from Decap admin window.
+                  if (e.data === 'authorizing:' + provider) {
+                    sendSuccess(e.origin);
+                  }
+                }
+
+                window.addEventListener('message', receiveMessage, false);
+
+                // Kick off Decap handshake.
+                window.opener.postMessage('authorizing:' + provider, '*');
+
+                // Fallback in case handshake event is delayed/missed.
+                setTimeout(function () { sendSuccess(window.location.origin); }, 1200);
               })();
             </script>
           </body>
