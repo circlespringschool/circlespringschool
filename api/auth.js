@@ -42,51 +42,35 @@ export default async function handler(req, res) {
         throw new Error('No access token received from GitHub');
       }
 
-      // Store token in a way that CMS can access it and redirect directly
-      const redirectUrl = `/admin/#access_token=${encodeURIComponent(tokenData.access_token)}&token_type=bearer&provider=github`;
-      
-      // Return a simple redirect page
+      // Decap CMS uses a popup and expects this exact postMessage format
+      const token = tokenData.access_token;
+      const msg = 'authorization:github:success:' + JSON.stringify({ token: token, provider: 'github' });
       const html = `
         <!DOCTYPE html>
         <html>
           <head>
             <title>Authorization Success</title>
-            <meta http-equiv="refresh" content="1;url=${redirectUrl}">
             <style>
-              body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                background: #f5f5f5;
-              }
-              .container {
-                text-align: center;
-                background: white;
-                padding: 2rem;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-              }
-              .success {
-                color: #28a745;
-                font-size: 1.2em;
-                margin-bottom: 1rem;
-              }
+              body { font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f5f5f5; }
+              .container { text-align: center; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+              .success { color: #28a745; font-size: 1.2em; margin-bottom: 1rem; }
             </style>
           </head>
           <body>
             <div class="container">
               <div class="success">✅ Authorization successful!</div>
-              <p>Redirecting to CMS...</p>
-              <p><a href="${redirectUrl}">Click here if not redirected automatically</a></p>
+              <p>Closing window...</p>
             </div>
             <script>
-              // Immediate redirect
-              setTimeout(() => {
-                window.location.href = '${redirectUrl}';
-              }, 500);
+              (function() {
+                var msg = ${JSON.stringify(msg)};
+                if (window.opener) {
+                  window.opener.postMessage(msg, window.location.origin);
+                  window.close();
+                } else {
+                  document.body.innerHTML = '<div class="container"><p>Pop-up was blocked. Please allow pop-ups for this site and try again.</p></div>';
+                }
+              })();
             </script>
           </body>
         </html>
