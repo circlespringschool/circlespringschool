@@ -44,8 +44,8 @@ vercel
 
 1. **Create OAuth App**: https://github.com/settings/developers
    - Name: `Circle Spring CMS`
-   - Homepage: `https://circlespringschool-red.vercel.app`
-   - Callback: `https://circlespringschool-red.vercel.app/api/auth`
+   - Homepage: `https://circlespringschool.vercel.app`
+   - Callback: `https://circlespringschool.vercel.app/api/auth`
 
 2. **Add to Vercel Environment Variables**:
    - `OAUTH_GITHUB_CLIENT_ID` = (from GitHub)
@@ -55,7 +55,7 @@ vercel
 
 ### 4. Access CMS on Production
 
-Visit: `https://circlespringschool-red.vercel.app/admin`
+Visit: `https://circlespringschool.vercel.app/admin`
 - Click "Login with GitHub"
 - Start editing content!
 
