@@ -313,9 +313,9 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-20 hero-gradient text-white">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                 x-text="language === 'en' ? 'Academic Excellence' : 'Ubora wa Kitaaluma'"></h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto"
+            <p id="hero-subtitle" class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto"
                 x-text="language === 'en' ? 'At Circle Spring Academy, we provide quality education with a comprehensive curriculum that nurtures young minds for a successful future.' : 'Katika Circle Spring Academy, tunatoa elimu bora na mtaala kamili unaolea akili za vijana kwa mustakabali wenye mafanikio.'">
             </p>
             <a href="#academic-programs"
@@ -1202,6 +1202,7 @@
         class="fixed bottom-8 right-8 bg-charcoal text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 opacity-0 invisible">
         <i class="fas fa-arrow-up"></i>
     </button>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script src="src/js/app.js"></script>
 </body>
 
