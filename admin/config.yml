@@ -3,9 +3,9 @@ backend:
   repo: RickMuchira/circlespringschool
   branch: main
   base_url: https://circlespringschool.vercel.app
-  auth_endpoint: api/auth
+  auth_endpoint: /api/auth
 
-# Only used on localhost - uses decap-server for editing without GitHub login
+# Local backend for development - allows editing without GitHub login
 local_backend: true
 
 media_folder: "src/imgs" # Folder where uploaded images will be stored
