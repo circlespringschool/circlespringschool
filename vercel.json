@@ -10,8 +10,9 @@
   ],
   "routes": [
     { "src": "/api/auth", "dest": "/api/auth.js" },
-    { "src": "/admin/config.yml", "dest": "/admin/config.yml" },
-    { "src": "/config.yml", "dest": "/admin/config.yml" },
+    { "src": "/admin/config.yml$", "dest": "/admin/config.yml" },
+    { "src": "/config.yml$", "dest": "/admin/config.yml" },
+    { "src": "/admin/.*\\.(js|css|json|yml|yaml)$", "dest": "/admin/$1" },
     { "src": "/admin/(.*)", "dest": "/admin/index.html" },
     { "src": "/studio/(.*)", "dest": "/studio/index.html" }
   ]
