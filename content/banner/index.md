@@ -6,8 +6,8 @@ description: Quality education with holistic development
 images:
   - image: /src/imgs/21350.jpg
     alt: Modern school facilities
-  - image: src/imgs/hero2.webp
+  - image: /src/imgs/circle2.jpg
     alt: Students engaging in activities
-  - image: src/imgs/hero3.webp
+  - image: /src/imgs/circle-3.jpg
     alt: Academic excellence
 ---
