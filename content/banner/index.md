@@ -4,7 +4,7 @@ subtitle: Circle Spring School in Salama Estate, Thika provides a nurturing
   environment that inspires young minds to achieve their full potential.
 description: Quality education with holistic development
 images:
-  - image: src/imgs/hero.webp
+  - image: /src/imgs/21350.jpg
     alt: Modern school facilities
   - image: src/imgs/hero2.webp
     alt: Students engaging in activities
