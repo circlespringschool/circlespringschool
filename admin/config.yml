@@ -2,7 +2,7 @@ backend:
   name: github
   repo: RickMuchira/circlespringschool
   branch: main
-  base_url: https://circlespringschool.vercel.app
+  base_url: https://www.circlespringschool.sc.ke
   auth_endpoint: /api/auth
 
 # Local backend for development - allows editing without GitHub login
