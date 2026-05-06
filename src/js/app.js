@@ -39,6 +39,23 @@ function parseFrontmatter(content) {
   return { data, content: markdownContent };
 }
 
+// Normalize image path - ensures paths work regardless of format
+function normalizeImagePath(imagePath) {
+  if (!imagePath) return '';
+  
+  // If path is already absolute URL, return as-is
+  if (imagePath.startsWith('http')) return imagePath;
+  
+  // If path already starts with /, it's correct
+  if (imagePath.startsWith('/')) return imagePath;
+  
+  // If path starts with src/, prepend /
+  if (imagePath.startsWith('src/')) return '/' + imagePath;
+  
+  // Otherwise, assume it's in src/imgs/ folder
+  return '/src/imgs/' + imagePath;
+}
+
 // Fetch and parse content file (no cache so CMS edits appear immediately)
 async function fetchContent(type) {
   try {
@@ -67,9 +84,9 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('carousel', () => ({
         activeSlide: 0,
         slides: [
-            { src: 'src/imgs/hero.webp', alt: 'Modern school facilities' },
-            { src: 'src/imgs/hero2.webp', alt: 'Students engaging in activities' },
-            { src: 'src/imgs/hero3.webp', alt: 'Academic excellence' }
+            { src: '/src/imgs/hero.webp', alt: 'Modern school facilities' },
+            { src: '/src/imgs/hero2.webp', alt: 'Students engaging in activities' },
+            { src: '/src/imgs/hero3.webp', alt: 'Academic excellence' }
         ],
         heroIntervalMs: 5000,
         totalSlides: 3,
@@ -87,14 +104,15 @@ document.addEventListener('alpine:init', () => {
                 const bannerData = await fetchContent('banner');
                 if (bannerData?.data?.images && Array.isArray(bannerData.data.images)) {
                     this.slides = bannerData.data.images.map(img => ({
-                        src: img.image || img.src || '',
+                        src: normalizeImagePath(img.image || img.src || ''),
                         alt: img.alt || 'Banner image'
-                    }));
+                    })).filter(slide => slide.src); // Filter out empty paths
                     this.totalSlides = this.slides.length;
                     if (this.activeSlide >= this.totalSlides) {
                         this.activeSlide = 0;
                     }
                     this.start(true);
+                    console.log('Loaded carousel slides:', this.slides); // Debug log
                 }
             } catch (error) {
                 console.error('Failed to load banner config:', error);
@@ -180,7 +198,7 @@ document.addEventListener('alpine:init', () => {
                     }
                     const imgEl = document.getElementById('story-image');
                     if (imgEl && data.storySection.image) {
-                        imgEl.src = data.storySection.image;
+                        imgEl.src = normalizeImagePath(data.storySection.image);
                         if (data.storySection.title) imgEl.alt = data.storySection.title;
                     }
                 }
@@ -332,7 +350,7 @@ function initializeBackToTop() {
         // Create back to top button if it doesn't exist
         const backToTopBtn = document.createElement('button');
         backToTopBtn.id = 'backToTop';
-        backToTopBtn.className = 'fixed bottom-8 right-8 bg-deep-carmine hover:bg-vivid-burgundy text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 opacity-0 invisible z-40';
+        backToTopBtn.className = 'fixed bottom-8 right-8 bg-deep-carmine hover:bg-vivid-burgundy text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 opacity-0 invisible';
         backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
         document.body.appendChild(backToTopBtn);
         
