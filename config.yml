@@ -2,8 +2,8 @@ backend:
   name: github
   repo: circlespringschool/circlespringschool
   branch: main
-  base_url: https://circlespringschool.vercel.app
-  auth_endpoint: api/auth
+  base_url: https://www.circlespringschool.sc.ke
+  auth_endpoint: /api/auth
 
 local_backend: true
 
