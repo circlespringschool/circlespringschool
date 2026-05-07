@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: RickMuchira/circlespringschool
+  repo: circlespringschool/circlespringschool
   branch: main
   base_url: https://circlespringschool.vercel.app
   auth_endpoint: api/auth
