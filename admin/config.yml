@@ -1,12 +1,7 @@
 backend:
-  name: github
-  repo: circlespringschool/circlespringschool
+  name: proxy
+  proxy_url: /api/decap
   branch: main
-  base_url: https://www.circlespringschool.sc.ke
-  auth_endpoint: /api/auth
-
-# Local backend for development - allows editing without GitHub login
-local_backend: true
 
 media_folder: "src/imgs" # Folder where uploaded images will be stored
 public_folder: "/src/imgs" # Public path for images in the frontend
