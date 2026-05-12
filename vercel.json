@@ -1,6 +1,12 @@
 {
   "routes": [
     { "src": "/api/auth", "dest": "/api/auth.js" },
+    { "src": "/api/decap", "dest": "/api/decap.js" },
+    { "src": "/api/auth/login", "dest": "/api/auth/login.js" },
+    { "src": "/api/auth/logout", "dest": "/api/auth/logout.js" },
+    { "src": "/api/auth/register", "dest": "/api/auth/register.js" },
+    { "src": "/api/auth/me", "dest": "/api/auth/me.js" },
+    { "src": "/api/admin/users", "dest": "/api/admin/users.js" },
     {
       "src": "/admin/config\\.yml$",
       "headers": { "cache-control": "no-store" },
@@ -11,7 +17,10 @@
       "headers": { "cache-control": "no-store" },
       "dest": "/admin/config.yml"
     },
-    { "src": "/admin/.*\\.(js|css|json|yml|yaml)$", "dest": "/admin/$1" },
+    {
+      "src": "/admin/(.*\\.(?:js|css|json|yml|yaml))$",
+      "dest": "/admin/$1"
+    },
     { "src": "/admin/(.*)", "dest": "/admin/index.html" },
     { "src": "/studio/(.*)", "dest": "/studio/index.html" }
   ]
