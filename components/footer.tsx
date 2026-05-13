@@ -7,10 +7,7 @@ import {
   Phone,
   Mail,
   Clock,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
+  ExternalLink,
 } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 import { siteConfig } from "@/lib/constants";
@@ -40,13 +37,13 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="border border-charcoal hover:bg-deep-carmine hover:border-deep-carmine hover:text-white size-10 rounded-full flex items-center justify-center transition"
               >
-                <Facebook className="size-4" />
+                <ExternalLink className="size-4" />
               </a>
               <a
                 href={siteConfig.socialLinks.twitter}
                 className="border border-charcoal hover:bg-deep-carmine hover:border-deep-carmine hover:text-white size-10 rounded-full flex items-center justify-center transition"
               >
-                <Twitter className="size-4" />
+                <ExternalLink className="size-4" />
               </a>
               <a
                 href={siteConfig.socialLinks.instagram}
@@ -54,13 +51,13 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="border border-charcoal hover:bg-deep-carmine hover:border-deep-carmine hover:text-white size-10 rounded-full flex items-center justify-center transition"
               >
-                <Instagram className="size-4" />
+                <ExternalLink className="size-4" />
               </a>
               <a
                 href={siteConfig.socialLinks.linkedin}
                 className="border border-charcoal hover:bg-deep-carmine hover:border-deep-carmine hover:text-white size-10 rounded-full flex items-center justify-center transition"
               >
-                <Linkedin className="size-4" />
+                <ExternalLink className="size-4" />
               </a>
             </div>
           </div>

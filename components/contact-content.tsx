@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useLanguage } from "@/components/language-provider"
 import { translations } from "@/lib/translations"
 import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants"
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Facebook, Instagram, Twitter, Youtube } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, ExternalLink } from "lucide-react"
 
 export function ContactContent() {
   const { language } = useLanguage()
@@ -25,10 +25,10 @@ export function ContactContent() {
   }
 
   const socialIcons = {
-    facebook: Facebook,
-    instagram: Instagram,
-    twitter: Twitter,
-    youtube: Youtube
+    facebook: ExternalLink,
+    instagram: ExternalLink,
+    twitter: ExternalLink,
+    youtube: ExternalLink
   }
 
   return (
@@ -46,7 +46,7 @@ export function ContactContent() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif">
-              {t.contactUs}
+              {t.contact.heroTitle}
             </h1>
             <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
               {language === "en" 

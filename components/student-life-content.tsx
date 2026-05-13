@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Trophy, Palette, Users, Dribbble, Music, Book, HeartHandshake } from "lucide-react";
+import { Trophy, Palette, Users, Music, Book, HeartHandshake } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 
 export function StudentLifeContent() {
@@ -86,7 +86,7 @@ export function StudentLifeContent() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <div className="absolute bottom-4 left-4 text-white">
                 <div className="flex items-center gap-2 mb-1">
-                  <Dribbble className="size-5" />
+                  <Trophy className="size-5" />
                   <h4 className="font-bold text-lg">Football</h4>
                 </div>
                 <p className="text-sm text-white/80">Team sports and competitions</p>

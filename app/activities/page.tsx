@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LanguageProvider } from "@/components/language-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ActivitiesContent } from "@/components/activities-content"
@@ -15,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function ActivitiesPage() {
   return (
-    <>
+    <LanguageProvider>
       <Header />
       <ActivitiesContent />
       <Footer />
-    </>
+    </LanguageProvider>
   )
 }

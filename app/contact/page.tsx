@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LanguageProvider } from "@/components/language-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ContactContent } from "@/components/contact-content"
@@ -15,10 +16,10 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
+    <LanguageProvider>
       <Header />
       <ContactContent />
       <Footer />
-    </>
+    </LanguageProvider>
   )
 }

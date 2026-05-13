@@ -25,8 +25,19 @@ const heroImages = [
   { src: "/images/hero3.webp", alt: "Campus life" },
 ];
 
-export function HomeContent() {
+type HomeContentProps = {
+  cmsBanner?: {
+    title?: string;
+    subtitle?: string;
+    description?: string;
+  } | null;
+};
+
+export function HomeContent({ cmsBanner }: HomeContentProps) {
   const { t } = useLanguage();
+
+  const heroTitle = cmsBanner?.title || t.hero.title;
+  const heroSubtitle = cmsBanner?.subtitle || t.hero.subtitle;
 
   return (
     <main>
@@ -37,10 +48,10 @@ export function HomeContent() {
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-balance font-heading">
-              {t.hero.title}
+              {heroTitle}
             </h1>
             <p className="text-xl md:text-2xl mb-10 leading-relaxed text-pretty">
-              {t.hero.subtitle}
+              {heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link

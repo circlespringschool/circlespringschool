@@ -75,12 +75,10 @@ export function ActivitiesContent() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif">
-              {t.activities}
+              {t.activities.heroTitle}
             </h1>
             <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
-              {language === "en" 
-                ? "Discover the many ways our students grow beyond the classroom"
-                : "Gundua njia nyingi ambazo wanafunzi wetu hukua nje ya darasa"}
+              {t.activities.heroSubtitle}
             </p>
           </div>
         </div>
@@ -183,7 +181,7 @@ export function ActivitiesContent() {
             href="/contact"
             className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary-foreground bg-primary rounded-full hover:bg-primary/90 transition-colors"
           >
-            {t.contactUs}
+            {t.contact.getInTouch}
           </a>
         </div>
       </section>

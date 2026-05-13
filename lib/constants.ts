@@ -26,3 +26,19 @@ export const siteConfig = {
     qualifiedStaff: "25+",
   },
 } as const;
+
+export const CONTACT_INFO = {
+  // Used by `components/contact-content.tsx`
+  address: `${siteConfig.address}, ${siteConfig.region}`,
+  phone: siteConfig.phoneClean,
+  phone2: "",
+  email: siteConfig.email,
+} as const;
+
+export const SOCIAL_LINKS = [
+  { name: "facebook", url: siteConfig.socialLinks.facebook },
+  { name: "instagram", url: siteConfig.socialLinks.instagram },
+  { name: "twitter", url: siteConfig.socialLinks.twitter },
+  // Brand icons in your Lucide version may not include YouTube, but the UI expects this key.
+  { name: "youtube", url: "#" },
+] as const;
