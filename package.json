@@ -2,15 +2,12 @@
   "name": "circle-spring-school",
   "version": "1.0.0",
   "description": "Website for Circle Spring Academy",
-  "main": "index.html",
   "type": "module",
   "scripts": {
-    "dev": "npx serve . -p 3000",
-    "dev:cms": "npx decap-server",
-    "dev:all": "concurrently \"npm run dev\" \"npx decap-server\"",
-    "build": "echo 'Build completed'",
-    "start": "npx serve . -p 3000",
-    "test": "npx serve . -p 3000"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "keywords": [
     "education",
@@ -23,27 +20,39 @@
     "node": "24.x"
   },
   "dependencies": {
+    "@base-ui/react": "^1.4.1",
     "@octokit/auth-app": "^8.2.0",
     "@octokit/rest": "^22.0.1",
     "@sanity/client": "^7.15.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.0.0",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.7.0",
     "bcryptjs": "^3.0.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "cookie": "^1.1.1",
     "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^1.14.0",
+    "next": "^16.2.6",
     "pg": "^8.20.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "postcss": "^8.5.14",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "sanity": "^3.0.0",
     "serve": "^14.2.3",
-    "styled-components": "^6.3.9"
+    "shadcn": "^4.7.0",
+    "styled-components": "^6.3.9",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.0",
+    "tw-animate-css": "^1.4.0"
   },
   "devDependencies": {
     "@sanity/cli": "^3.0.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
     "concurrently": "^8.2.0",
     "decap-server": "^3.7.0",
-    "typescript": "^5.0.0"
+    "typescript": "^6.0.3"
   }
 }
