@@ -1,50 +1,91 @@
+function parseCookies(cookieHeader) {
+  return (cookieHeader || '').split(';').reduce((cookies, pair) => {
+    const [key, ...rest] = pair.split('=');
+    if (!key) return cookies;
+    cookies[key.trim()] = decodeURIComponent(rest.join('=').trim() || '');
+    return cookies;
+  }, {});
+}
+
+function serializeCookie(name, value, options = {}) {
+  let cookie = `${name}=${encodeURIComponent(value)}`;
+  if (options.maxAge !== undefined) cookie += `; Max-Age=${options.maxAge}`;
+  if (options.path) cookie += `; Path=${options.path}`;
+  if (options.httpOnly) cookie += '; HttpOnly';
+  if (options.secure) cookie += '; Secure';
+  if (options.sameSite) cookie += `; SameSite=${options.sameSite}`;
+  return cookie;
+}
+
 export default async function handler(req, res) {
   const { code, state, error } = req.query;
-  
-  // Handle OAuth errors
+  const host = req.headers['x-forwarded-host'] || req.headers.host || 'localhost:3000';
+  const protocol = req.headers['x-forwarded-proto'] || (host.includes('localhost') ? 'http' : 'https');
+  const baseUrl = `${protocol}://${host}`;
+  const redirectUri = `${baseUrl}/api/auth`;
+
+  const clientId = process.env.OAUTH_GITHUB_CLIENT_ID;
+  const clientSecret = process.env.OAUTH_GITHUB_CLIENT_SECRET;
+
+  console.log('Auth handler called:', { host, protocol, baseUrl, redirectUri, hasCode: !!code, hasError: !!error });
+
+  if (!clientId || !clientSecret) {
+    console.error('OAuth credentials not configured', { clientId: !!clientId, clientSecret: !!clientSecret });
+    return res.status(500).json({ error: 'OAuth credentials not configured' });
+  }
+
+  // Handle OAuth errors from GitHub
   if (error) {
-    console.error('OAuth error:', error);
+    console.error('GitHub OAuth error:', error);
     return res.status(400).json({ error: `OAuth error: ${error}` });
   }
-  
-  // Handle OAuth callback
+
+  // Handle OAuth callback (code exchange)
   if (code) {
     try {
-      console.log('Processing OAuth callback with code:', code);
-      
-      // Exchange code for access token
+      const codeValue = Array.isArray(code) ? code[0] : code;
+      console.log('Exchanging code for token:', { redirectUri });
+
       const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'User-Agent': 'Circle-Spring-CMS'
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'User-Agent': 'Circle-Spring-CMS',
         },
-        body: JSON.stringify({
-          client_id: process.env.OAUTH_GITHUB_CLIENT_ID,
-          client_secret: process.env.OAUTH_GITHUB_CLIENT_SECRET,
-          code: code,
-        }),
+        body: new URLSearchParams({
+          client_id: clientId,
+          client_secret: clientSecret,
+          code: codeValue,
+          redirect_uri: redirectUri,
+        }).toString(),
       });
 
+      const tokenData = await tokenResponse.json();
+      
       if (!tokenResponse.ok) {
-        throw new Error(`Token request failed: ${tokenResponse.status} ${tokenResponse.statusText}`);
+        console.error('Token exchange failed:', {
+          status: tokenResponse.status,
+          error: tokenData.error,
+          errorDescription: tokenData.error_description,
+        });
+        throw new Error(`Token request failed: ${tokenData.error_description || tokenData.error}`);
       }
 
-      const tokenData = await tokenResponse.json();
-      console.log('Token response:', { ...tokenData, access_token: tokenData.access_token ? '[REDACTED]' : 'missing' });
-
       if (tokenData.error) {
+        console.error('GitHub returned error in token response:', tokenData);
         throw new Error(`GitHub OAuth error: ${tokenData.error_description || tokenData.error}`);
       }
 
       if (!tokenData.access_token) {
+        console.error('No access token in response:', tokenData);
         throw new Error('No access token received from GitHub');
       }
 
-      // Decap CMS popup flow expects a handshake then a success postMessage
+      console.log('Token exchange successful');
       const token = tokenData.access_token;
       const successMsg = 'authorization:github:success:' + JSON.stringify({ token, provider: 'github' });
+
       const html = `
         <!DOCTYPE html>
         <html>
@@ -81,55 +122,37 @@ export default async function handler(req, res) {
                 }
 
                 function receiveMessage(e) {
-                  // Expect handshake from Decap admin window.
                   if (e.data === 'authorizing:' + provider) {
                     sendSuccess(e.origin);
                   }
                 }
 
                 window.addEventListener('message', receiveMessage, false);
-
-                // Kick off Decap handshake.
                 window.opener.postMessage('authorizing:' + provider, '*');
-
-                // Fallback in case handshake event is delayed/missed.
                 setTimeout(function () { sendSuccess(window.location.origin); }, 1200);
               })();
             </script>
           </body>
         </html>
       `;
-      
+
       return res.status(200).send(html);
-      
     } catch (error) {
-      console.error('OAuth processing error:', error);
-      return res.status(500).json({ 
+      console.error('OAuth processing error:', error.message, error.stack);
+      return res.status(500).json({
         error: 'Authentication failed',
         details: error.message,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       });
     }
   }
 
-  // Initial OAuth redirect
-  const clientId = process.env.OAUTH_GITHUB_CLIENT_ID;
-  
-  if (!clientId) {
-    return res.status(500).json({ error: 'OAuth client ID not configured' });
-  }
-  
-  const host = req.headers['x-forwarded-host'] || req.headers.host || 'circlespringschool.vercel.app';
-  const protocol = host.includes('localhost') ? 'http' : 'https';
-  const baseUrl = `${protocol}://${host}`;
-    
-  const redirectUri = `${baseUrl}/api/auth`;
+  // Initial OAuth request - redirect to GitHub
   const scope = 'repo,user,read:org';
   const randomState = Math.random().toString(36).substring(7);
-
   const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scope}&state=${randomState}`;
 
-  console.log('Redirecting to GitHub OAuth:', { clientId, redirectUri, scope });
-  
+  console.log('Redirecting to GitHub OAuth:', { redirectUri, scope });
   res.redirect(authUrl);
 }
+
